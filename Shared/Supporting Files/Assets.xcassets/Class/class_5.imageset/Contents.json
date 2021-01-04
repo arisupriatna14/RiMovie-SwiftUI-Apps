@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "belajar_prinsip_pemrograman_solid_logo_160320152324-2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -11,12 +11,10 @@ import Alamofire
 
 protocol RemoteDataSourceProtocol {
   
-  func getMovieUpcoming() -> AnyPublisher<[MovieResponse], Error>
-  func getMovieTopRated() -> AnyPublisher<[MovieResponse], Error>
-  func getMoviePopular() -> AnyPublisher<[MovieResponse], Error>
+  func fetchMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieResponse], Error>
   func getMovieSimilar(by movieId: Int) -> AnyPublisher<[MovieResponse], Error>
-  func getDetailMovie(by movieId: Int) -> AnyPublisher<MovieResponse, Error>
-  func searchMovie(by keyword: String) -> AnyPublisher<[MovieResponse], Error>
+  func fetchMovie(by movieId: Int) -> AnyPublisher<MovieResponse, Error>
+  func searchMovies(by keyword: String) -> AnyPublisher<[MovieResponse], Error>
   
 }
 
@@ -29,48 +27,19 @@ final class RemoteDataSource: NSObject {
 }
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
-  func getMovieUpcoming() -> AnyPublisher<[MovieResponse], Error> {
-    return Future<[MovieResponse], Error> { completion in
-      
-      guard let url = URL(string: "\(Endpoints.Gets.upcoming)?api_key=\(API.apiKey)&language=en-US&page=1") else { return }
-      
-      AF.request(url)
-        .validate()
-        .responseDecodable(of: MoviesResponse.self) { response in
-          switch response.result {
-          case .success(let movies):
-            completion(.success(movies.results))
-          case .failure:
-            completion(.failure(MovieError.invalidResponse))
-          }
-        }
-      
-    }.eraseToAnyPublisher()
-  }
   
-  func getMovieTopRated() -> AnyPublisher<[MovieResponse], Error> {
+  func fetchMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieResponse], Error> {
     return Future<[MovieResponse], Error> { completion in
       
-      guard let url = URL(string: "\(Endpoints.Gets.topRated)?api_key=\(API.apiKey)&language=en-US&page=1") else { return }
+      var urlComponents = API.baseUrlComponents
+      urlComponents.path = endpoint.url
+      urlComponents.setQueryItems(with: [
+        "api_key": API.apiKey,
+        "language": "en-US",
+        "page": "1"
+      ])
       
-      AF.request(url)
-        .validate()
-        .responseDecodable(of: MoviesResponse.self) { response in
-          switch response.result {
-          case .success(let movies):
-            completion(.success(movies.results))
-          case .failure:
-            completion(.failure(MovieError.invalidResponse))
-          }
-        }
-      
-    }.eraseToAnyPublisher()
-  }
-  
-  func getMoviePopular() -> AnyPublisher<[MovieResponse], Error> {
-    return Future<[MovieResponse], Error> { completion in
-      
-      guard let url = URL(string: "\(Endpoints.Gets.popular)?api_key=\(API.apiKey)&language=en-US&page=1") else { return }
+      guard let url = urlComponents.url else { return }
       
       AF.request(url)
         .validate()
@@ -89,7 +58,15 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
   func getMovieSimilar(by movieId: Int) -> AnyPublisher<[MovieResponse], Error> {
     return Future<[MovieResponse], Error> { completion in
       
-      guard let url = URL(string: "\(Endpoints.Gets.similarMovie)/\(movieId)/similar?api_key=\(API.apiKey)&language=en-US&page=1") else { return }
+      var urlComponents = API.baseUrlComponents
+      urlComponents.path = "\(Endpoints.Gets.similarMovie.url)/\(movieId)/similar"
+      urlComponents.setQueryItems(with: [
+        "api_key": API.apiKey,
+        "language": "en-US",
+        "page": "1"
+      ])
+      
+      guard let url = urlComponents.url else { return }
       
       AF.request(url)
         .validate()
@@ -105,10 +82,19 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }.eraseToAnyPublisher()
   }
   
-  func getDetailMovie(by movieId: Int) -> AnyPublisher<MovieResponse, Error> {
+  func fetchMovie(by movieId: Int) -> AnyPublisher<MovieResponse, Error> {
     return Future<MovieResponse, Error> { completion in
       
-      guard let url = URL(string: "\(Endpoints.Gets.detail)/\(movieId)?api_key=\(API.apiKey)&language=en-US&page=1") else { return }
+      var urlComponents = API.baseUrlComponents
+      urlComponents.path = "\(Endpoints.Gets.detail.url)/\(movieId)"
+      urlComponents.setQueryItems(with: [
+        "api_key": API.apiKey,
+        "language": "en-US",
+        "page": "1",
+        "append_to_response": "videos,credits"
+      ])
+      
+      guard let url = urlComponents.url else { return }
       
       AF.request(url)
         .validate()
@@ -123,10 +109,20 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }.eraseToAnyPublisher()
   }
   
-  func searchMovie(by keyword: String) -> AnyPublisher<[MovieResponse], Error> {
+  func searchMovies(by keyword: String) -> AnyPublisher<[MovieResponse], Error> {
     return Future<[MovieResponse], Error> { completion in
       
-      guard let url = URL(string: "\(Endpoints.Gets.searchMovie)?api_key=\(API.apiKey)&language=en-US&query=\(keyword)&page=1&include_adult=false") else { return }
+      var urlComponents = API.baseUrlComponents
+      urlComponents.path = Endpoints.Gets.searchMovie.url
+      urlComponents.setQueryItems(with: [
+        "api_key": API.apiKey,
+        "language": "en-US",
+        "query": keyword,
+        "page": "1",
+        "include_adult": "false"
+      ])
+      
+      guard let url = urlComponents.url else { return }
       
       AF.request(url)
         .validate()

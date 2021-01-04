@@ -44,7 +44,12 @@ extension MovieCrewModel {
 extension MovieCastModel {
   
   static var stub: MovieCastModel {
-    .init(id: 2560614, character: "Nory Boxwood Horace", name: "Izabela Rose", profilePath: "/p6TY55Yzq0cGyeSzzB2zFTzhvCf.jpg")
+    .init(
+      id: 2560614,
+      character: "Nory Boxwood Horace",
+      name: "Izabela Rose",
+      profilePath: "/p6TY55Yzq0cGyeSzzB2zFTzhvCf.jpg"
+    )
   }
   
 }

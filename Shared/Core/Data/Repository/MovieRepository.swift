@@ -10,46 +10,62 @@ import Combine
 
 protocol MovieRepositoryProtocol {
   
-  func getMovieUpcoming() -> AnyPublisher<[MovieModel], Error>
-  func getMovieTopRated() -> AnyPublisher<[MovieModel], Error>
-  func getMoviePopular() -> AnyPublisher<[MovieModel], Error>
+  func getMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieModel], Error>
   func getMovieSimilar(by movieId: Int) -> AnyPublisher<[MovieModel], Error>
-  func getDetailMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error>
-  func searchMovie(by keyword: String) -> AnyPublisher<[MovieModel], Error>
+  func getMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error>
+  func searchMovies(by keyword: String) -> AnyPublisher<[MovieModel], Error>
+  
+  func getMoviesFavorite() -> AnyPublisher<[MovieModel], Error>
+  func updateFavoriteMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error>
+  func getMovieFavorite(by movieId: Int) -> AnyPublisher<MovieModel, Error>
+  func addMovieToFavorite(from movie: MovieModel) -> AnyPublisher<Bool, Error>
   
 }
 
 final class MovieRepository: NSObject {
   
-  typealias MovieInstance = (RemoteDataSource) -> MovieRepository
+  typealias MovieInstance = (LocaleDataSource, RemoteDataSource) -> MovieRepository
   
+  fileprivate let locale: LocaleDataSource
   fileprivate let remote: RemoteDataSource
   
-  private init(remote: RemoteDataSource) {
+  private init(locale: LocaleDataSource, remote: RemoteDataSource) {
+    self.locale = locale
     self.remote = remote
   }
   
-  static let sharedInstace: MovieInstance = { remoteRepo in
-    return MovieRepository(remote: remoteRepo)
+  static let sharedInstace: MovieInstance = { localeRepo, remoteRepo in
+    return MovieRepository(locale: localeRepo, remote: remoteRepo)
   }
   
 }
 
 extension MovieRepository: MovieRepositoryProtocol {
-  func getMovieUpcoming() -> AnyPublisher<[MovieModel], Error> {
-    self.remote.getMovieUpcoming()
-      .map { MovieMapper.mapMoviesResponseToDomains(input: $0) }
+
+  func getMoviesFavorite() -> AnyPublisher<[MovieModel], Error> {
+    self.locale.getMoviesFavorite()
+      .map { MovieMapper.mapMoviesEntitiesToDomains(input: $0) }
       .eraseToAnyPublisher()
   }
   
-  func getMovieTopRated() -> AnyPublisher<[MovieModel], Error> {
-    self.remote.getMovieTopRated()
-      .map { MovieMapper.mapMoviesResponseToDomains(input: $0) }
+  func updateFavoriteMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error> {
+    self.locale.updateMovieFavorite(by: movieId)
+      .map { MovieMapper.mapDetailMovieEntityToDomain(input: $0) }
       .eraseToAnyPublisher()
   }
   
-  func getMoviePopular() -> AnyPublisher<[MovieModel], Error> {
-    self.remote.getMoviePopular()
+  func getMovieFavorite(by movieId: Int) -> AnyPublisher<MovieModel, Error> {
+    self.locale.getMovie(by: movieId)
+      .map { MovieMapper.mapDetailMovieEntityToDomain(input: $0) }
+      .eraseToAnyPublisher()
+  }
+  
+  func addMovieToFavorite(from movie: MovieModel) -> AnyPublisher<Bool, Error> {
+    self.locale.addMovie(from: MovieMapper.mapDetailMovieDomainToEntity(input: movie))
+  }
+  
+  func getMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieModel], Error> {
+    self.remote.fetchMovies(from: endpoint)
       .map { MovieMapper.mapMoviesResponseToDomains(input: $0) }
       .eraseToAnyPublisher()
   }
@@ -60,17 +76,16 @@ extension MovieRepository: MovieRepositoryProtocol {
       .eraseToAnyPublisher()
   }
   
-  func getDetailMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error> {
-    self.remote.getDetailMovie(by: movieId)
+  func getMovie(by movieId: Int) -> AnyPublisher<MovieModel, Error> {
+    self.remote.fetchMovie(by: movieId)
       .map { MovieMapper.mapDetailMovieResponseToDomains(input: $0) }
       .eraseToAnyPublisher()
   }
   
-  func searchMovie(by keyword: String) -> AnyPublisher<[MovieModel], Error> {
-    self.remote.searchMovie(by: keyword)
+  func searchMovies(by keyword: String) -> AnyPublisher<[MovieModel], Error> {
+    self.remote.searchMovies(by: keyword)
       .map { MovieMapper.mapMoviesResponseToDomains(input: $0) }
       .eraseToAnyPublisher()
   }
-  
   
 }

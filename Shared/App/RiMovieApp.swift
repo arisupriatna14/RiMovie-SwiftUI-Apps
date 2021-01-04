@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct RiMovieApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  
+  @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHome())
+  @StateObject var searchPresenter = SearchPresenter(searchUseCase: Injection().provideSearch())
+  @StateObject var favoritePresenter = FavoritePresenter(favoriteUseCase: Injection().provideFavorite())
+  @StateObject var aboutPresenter = AboutPresenter(aboutUseCase: Injection().provideAbout())
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .environmentObject(homePresenter)
+        .environmentObject(searchPresenter)
+        .environmentObject(aboutPresenter)
+        .environmentObject(favoritePresenter)
     }
+  }
 }

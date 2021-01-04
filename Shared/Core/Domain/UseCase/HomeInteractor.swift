@@ -10,9 +10,7 @@ import Combine
 
 protocol HomeUseCase {
   
-  func getMovieUpcoming() -> AnyPublisher<[MovieModel], Error>
-  func getMovieTopRated() -> AnyPublisher<[MovieModel], Error>
-  func getMoviePopular() -> AnyPublisher<[MovieModel], Error>
+  func getMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieUIModel], Error>
   
 }
 
@@ -24,16 +22,10 @@ class HomeInteractor: HomeUseCase {
     self.repository = repository
   }
   
-  func getMovieUpcoming() -> AnyPublisher<[MovieModel], Error> {
-    return repository.getMovieUpcoming()
-  }
-  
-  func getMovieTopRated() -> AnyPublisher<[MovieModel], Error> {
-    return repository.getMovieTopRated()
-  }
-  
-  func getMoviePopular() -> AnyPublisher<[MovieModel], Error> {
-    return repository.getMoviePopular()
+  func getMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieUIModel], Error> {
+    repository.getMovies(from: endpoint)
+      .map { MovieMapper.mapMoviesDomainsToPresentations(input: $0) }
+      .eraseToAnyPublisher()
   }
   
 }

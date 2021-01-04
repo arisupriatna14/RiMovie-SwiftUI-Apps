@@ -10,23 +10,25 @@ import Combine
 
 class HomePresenter: ObservableObject {
   
+  private let router = HomeRouter()
   private let homeUseCase: HomeUseCase
   private var cancellables: Set<AnyCancellable> = []
   
   @Published var isLoadingState = false
-  @Published var movieUpcoming: [MovieModel]?
-  @Published var moviePopular: [MovieModel]?
-  @Published var movieTopRated: [MovieModel]?
+  @Published var movieUpcoming: [MovieUIModel]?
+  @Published var moviePopular: [MovieUIModel]?
+  @Published var movieTopRated: [MovieUIModel]?
+  @Published var movieNowPlaying: [MovieUIModel]?
   @Published var errorMessage: String = ""
   
   init(homeUseCase: HomeUseCase) {
     self.homeUseCase = homeUseCase
   }
   
-  func getMovieUpcoming() {
+  func getMovies(with endpoint: Endpoints.Gets) {
     isLoadingState = true
     
-    homeUseCase.getMovieUpcoming()
+    homeUseCase.getMovies(from: endpoint)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -37,46 +39,28 @@ class HomePresenter: ObservableObject {
           self.isLoadingState = false
         }
       }, receiveValue: { result in
-        self.movieUpcoming = result
+        switch endpoint {
+        case .nowPlaying:
+          self.movieNowPlaying = result
+        case .popular:
+          self.moviePopular = result
+        case .topRated:
+          self.movieTopRated = result
+        case .upcoming:
+          self.movieUpcoming = result
+        default:
+          debugPrint("Wrong endpoint")
+        }
       })
       .store(in: &cancellables)
   }
   
-  func getMovieTopRated() {
-    isLoadingState = true
-    
-    homeUseCase.getMovieTopRated()
-      .receive(on: RunLoop.main)
-      .sink(receiveCompletion: { error in
-        switch error {
-        case .failure:
-          self.isLoadingState = false
-          self.errorMessage = String(describing: error)
-        case .finished:
-          self.isLoadingState = false
-        }
-      }, receiveValue: { result in
-        self.movieTopRated = result
-      })
-      .store(in: &cancellables)
-  }
-  
-  func getMoviePopular() {
-    isLoadingState = true
-    
-    homeUseCase.getMoviePopular()
-      .receive(on: RunLoop.main)
-      .sink(receiveCompletion: { error in
-        switch error {
-        case .failure:
-          self.isLoadingState = false
-          self.errorMessage = String(describing: error)
-        case .finished:
-          self.isLoadingState = false
-        }
-      }, receiveValue: { result in
-        self.moviePopular = result
-      })
-      .store(in: &cancellables)
+  func linkBuilderMovieDetail<Content: View>(
+    for movie: MovieUIModel,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    NavigationLink(destination: router.makeMovieDetailView(for: movie)) {
+      content()
+    }
   }
 }
