@@ -2,7 +2,7 @@
 //  HomeView.swift
 //  RiMovie (iOS)
 //
-//  Created by Ari Supriatna on 15/12/20.
+//  Created by Ari Supriatna on 04/01/21.
 //
 
 import SwiftUI

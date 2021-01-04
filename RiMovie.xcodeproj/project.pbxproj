@@ -48,7 +48,6 @@
 		8693DE3A25885D4A00D71477 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE3925885D4A00D71477 /* Injection.swift */; };
 		8693DE3F25885F1E00D71477 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE3E25885F1E00D71477 /* HomeInteractor.swift */; };
 		8693DE482588603200D71477 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE472588603200D71477 /* HomePresenter.swift */; };
-		8693DE4C2588603C00D71477 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE4B2588603C00D71477 /* HomeView.swift */; };
 		86A9E11F258A00F000E175C1 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9E11E258A00F000E175C1 /* ShimmerView.swift */; };
 		86CFEAF82591044A00C31DAC /* ListMovieCastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEAF72591044A00C31DAC /* ListMovieCastView.swift */; };
 		86CFEAFC2591045300C31DAC /* ListMovieCrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEAFB2591045300C31DAC /* ListMovieCrewView.swift */; };
@@ -86,7 +85,6 @@
 		86DE45C42592638000D5898F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DE45C32592638000D5898F /* Preview Assets.xcassets */; };
 		86DE45C92592638000D5898F /* RiMovieAppClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 86DE45BA2592637D00D5898F /* RiMovieAppClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		86DE45D42592639A00D5898F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8693DDBF2588318100D71477 /* Assets.xcassets */; };
-		86DE45DE2592652B00D5898F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE4B2588603C00D71477 /* HomeView.swift */; };
 		86DE45DF2592652B00D5898F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691F8F125897127001A1B83 /* HomeRouter.swift */; };
 		86DE45E02592652B00D5898F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE472588603200D71477 /* HomePresenter.swift */; };
 		86DE45E12592652B00D5898F /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865ECB282588BB74007B798B /* BannerView.swift */; };
@@ -158,6 +156,8 @@
 		86F2C03825A2017F0040C41F /* ClassDicodingMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F2C03725A2017F0040C41F /* ClassDicodingMapper.swift */; };
 		86F2C04525A206C70040C41F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 86F2C04425A206C70040C41F /* .swiftlint.yml */; };
 		86F2C05E25A2C8E00040C41F /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F2C05D25A2C8E00040C41F /* CustomEmptyView.swift */; };
+		86FBCFAB25A32D4F00F36252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBCFAA25A32D4F00F36252 /* HomeView.swift */; };
+		86FBCFB425A32E7700F36252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBCFAA25A32D4F00F36252 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,7 +239,6 @@
 		8693DE3925885D4A00D71477 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		8693DE3E25885F1E00D71477 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8693DE472588603200D71477 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		8693DE4B2588603C00D71477 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = Shared/Module/Home/Presenter/HomeView.swift; sourceTree = SOURCE_ROOT; };
 		86A9E11E258A00F000E175C1 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		86CFEAF72591044A00C31DAC /* ListMovieCastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieCastView.swift; sourceTree = "<group>"; };
 		86CFEAFB2591045300C31DAC /* ListMovieCrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieCrewView.swift; sourceTree = "<group>"; };
@@ -293,6 +292,7 @@
 		86F2C03725A2017F0040C41F /* ClassDicodingMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDicodingMapper.swift; sourceTree = "<group>"; };
 		86F2C04425A206C70040C41F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		86F2C05D25A2C8E00040C41F /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		86FBCFAA25A32D4F00F36252 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,7 +641,7 @@
 		8693DE452588601E00D71477 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8693DE4B2588603C00D71477 /* HomeView.swift */,
+				86FBCFAA25A32D4F00F36252 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1101,7 +1101,6 @@
 				8693DE3F25885F1E00D71477 /* HomeInteractor.swift in Sources */,
 				8693DDF42588345F00D71477 /* MovieResponse.swift in Sources */,
 				86DE457D2591A85A00D5898F /* MovieEntity.swift in Sources */,
-				8693DE4C2588603C00D71477 /* HomeView.swift in Sources */,
 				8623AED2259B34E7005FF5D5 /* UserRepository.swift in Sources */,
 				86DE454A2591609900D5898F /* CertificateModel.swift in Sources */,
 				86DE45AF2592551700D5898F /* Array+Ext.swift in Sources */,
@@ -1113,6 +1112,7 @@
 				8691F8E325896B9B001A1B83 /* DetailView.swift in Sources */,
 				86F2C05E25A2C8E00040C41F /* CustomEmptyView.swift in Sources */,
 				86DE45522591632400D5898F /* AboutPresenter.swift in Sources */,
+				86FBCFAB25A32D4F00F36252 /* HomeView.swift in Sources */,
 				86CFEB1725910B3100C31DAC /* SearchPresenter.swift in Sources */,
 				8623AF05259B613C005FF5D5 /* MovieCreditUIModel.swift in Sources */,
 				86DE45562591642D00D5898F /* AboutView.swift in Sources */,
@@ -1173,7 +1173,6 @@
 				86DE461A2592659E00D5898F /* RemoteDataSource.swift in Sources */,
 				86DE45E22592652B00D5898F /* MovieCardVertical.swift in Sources */,
 				8623AEC5259B32E6005FF5D5 /* LocaleDataSource.swift in Sources */,
-				86DE45DE2592652B00D5898F /* HomeView.swift in Sources */,
 				8623AEB42598BFD2005FF5D5 /* MovieRepository.swift in Sources */,
 				86DE45EE2592654B00D5898F /* ListMovieCastView.swift in Sources */,
 				86DE46192592659E00D5898F /* MovieCreditResponse.swift in Sources */,
@@ -1182,6 +1181,7 @@
 				86DE46122592658500D5898F /* Injection.swift in Sources */,
 				86DE46072592657A00D5898F /* HomeInteractor.swift in Sources */,
 				86DE45F32592656100D5898F /* ShimmerView.swift in Sources */,
+				86FBCFB425A32E7700F36252 /* HomeView.swift in Sources */,
 				86DE45EC2592654B00D5898F /* DetailRouter.swift in Sources */,
 				86DE460E2592658100D5898F /* MovieCreditModel.swift in Sources */,
 				86DE46182592659E00D5898F /* MovieResponse.swift in Sources */,
