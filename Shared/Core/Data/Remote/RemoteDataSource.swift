@@ -9,15 +9,6 @@ import Foundation
 import Combine
 import Alamofire
 
-protocol RemoteDataSourceProtocol {
-  
-  func fetchMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieResponse], Error>
-  func getMovieSimilar(by movieId: Int) -> AnyPublisher<[MovieResponse], Error>
-  func fetchMovie(by movieId: Int) -> AnyPublisher<MovieResponse, Error>
-  func searchMovies(by keyword: String) -> AnyPublisher<[MovieResponse], Error>
-  
-}
-
 final class RemoteDataSource: NSObject {
   
   private override init() { }

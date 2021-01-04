@@ -158,6 +158,14 @@
 		86F2C05E25A2C8E00040C41F /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F2C05D25A2C8E00040C41F /* CustomEmptyView.swift */; };
 		86FBCFAB25A32D4F00F36252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBCFAA25A32D4F00F36252 /* HomeView.swift */; };
 		86FBCFB425A32E7700F36252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBCFAA25A32D4F00F36252 /* HomeView.swift */; };
+		86FBD00425A3873200F36252 /* MovieRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD00325A3873200F36252 /* MovieRepositoryProtocol.swift */; };
+		86FBD00925A3876600F36252 /* MovieRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD00325A3873200F36252 /* MovieRepositoryProtocol.swift */; };
+		86FBD00F25A387A300F36252 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD00E25A387A300F36252 /* UserRepositoryProtocol.swift */; };
+		86FBD01A25A3887700F36252 /* LocaleDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD01925A3887700F36252 /* LocaleDataSourceProtocol.swift */; };
+		86FBD01F25A3888C00F36252 /* LocaleDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD01925A3887700F36252 /* LocaleDataSourceProtocol.swift */; };
+		86FBD02625A388A300F36252 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD02525A388A300F36252 /* RemoteDataSourceProtocol.swift */; };
+		86FBD02725A388A300F36252 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD02525A388A300F36252 /* RemoteDataSourceProtocol.swift */; };
+		86FBD02C25A388C500F36252 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBD02525A388A300F36252 /* RemoteDataSourceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +301,10 @@
 		86F2C04425A206C70040C41F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		86F2C05D25A2C8E00040C41F /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		86FBCFAA25A32D4F00F36252 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		86FBD00325A3873200F36252 /* MovieRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryProtocol.swift; sourceTree = "<group>"; };
+		86FBD00E25A387A300F36252 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		86FBD01925A3887700F36252 /* LocaleDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSourceProtocol.swift; sourceTree = "<group>"; };
+		86FBD02525A388A300F36252 /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +512,7 @@
 		8693DDEA2588337000D71477 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				86FBD02425A3889100F36252 /* Protocol */,
 				8693DDEE2588339900D71477 /* Response */,
 				8693DDEF258833AD00D71477 /* RemoteDataSource.swift */,
 			);
@@ -509,6 +522,7 @@
 		8693DDEB2588337B00D71477 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
+				86FBD01425A3885C00F36252 /* Protocol */,
 				86DE456D2591A55900D5898F /* Entity */,
 				86DE456F2591A57100D5898F /* LocaleDataSource.swift */,
 			);
@@ -518,6 +532,7 @@
 		8693DDED2588338800D71477 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				86FBD00225A3870E00F36252 /* Protocol */,
 				8693DE352588584100D71477 /* MovieRepository.swift */,
 				8623AED1259B34E7005FF5D5 /* UserRepository.swift */,
 			);
@@ -882,6 +897,31 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		86FBD00225A3870E00F36252 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				86FBD00325A3873200F36252 /* MovieRepositoryProtocol.swift */,
+				86FBD00E25A387A300F36252 /* UserRepositoryProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		86FBD01425A3885C00F36252 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				86FBD01925A3887700F36252 /* LocaleDataSourceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		86FBD02425A3889100F36252 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				86FBD02525A388A300F36252 /* RemoteDataSourceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1103,8 +1143,11 @@
 				86DE457D2591A85A00D5898F /* MovieEntity.swift in Sources */,
 				8623AED2259B34E7005FF5D5 /* UserRepository.swift in Sources */,
 				86DE454A2591609900D5898F /* CertificateModel.swift in Sources */,
+				86FBD02625A388A300F36252 /* RemoteDataSourceProtocol.swift in Sources */,
 				86DE45AF2592551700D5898F /* Array+Ext.swift in Sources */,
+				86FBD00425A3873200F36252 /* MovieRepositoryProtocol.swift in Sources */,
 				86CFEB1B25910E4800C31DAC /* SearchView.swift in Sources */,
+				86FBD01A25A3887700F36252 /* LocaleDataSourceProtocol.swift in Sources */,
 				8693DE1625883E5F00D71477 /* MovieCreditResponse.swift in Sources */,
 				8693DE322588509100D71477 /* CustomError+Ext.swift in Sources */,
 				8693DE012588364C00D71477 /* APICall.swift in Sources */,
@@ -1115,6 +1158,7 @@
 				86FBCFAB25A32D4F00F36252 /* HomeView.swift in Sources */,
 				86CFEB1725910B3100C31DAC /* SearchPresenter.swift in Sources */,
 				8623AF05259B613C005FF5D5 /* MovieCreditUIModel.swift in Sources */,
+				86FBD00F25A387A300F36252 /* UserRepositoryProtocol.swift in Sources */,
 				86DE45562591642D00D5898F /* AboutView.swift in Sources */,
 				8693DE3A25885D4A00D71477 /* Injection.swift in Sources */,
 				86A9E11F258A00F000E175C1 /* ShimmerView.swift in Sources */,
@@ -1199,6 +1243,7 @@
 				86DE460C2592658100D5898F /* MovieVideoModel.swift in Sources */,
 				86DE46022592657300D5898F /* CustomError+Ext.swift in Sources */,
 				86DE460D2592658100D5898F /* MovieModel.swift in Sources */,
+				86FBD01F25A3888C00F36252 /* LocaleDataSourceProtocol.swift in Sources */,
 				86DE46162592659E00D5898F /* MovieVideoResponse.swift in Sources */,
 				8623AECA259B32F7005FF5D5 /* MovieVideoEntity.swift in Sources */,
 				86DE45F22592656100D5898F /* SafariView.swift in Sources */,
@@ -1206,7 +1251,9 @@
 				86DE45E92592654B00D5898F /* ListMovieSimilarView.swift in Sources */,
 				86F2C01525A1ED220040C41F /* MovieUIModel.swift in Sources */,
 				86DE45F92592656600D5898F /* MovieMapper.swift in Sources */,
+				86FBD02725A388A300F36252 /* RemoteDataSourceProtocol.swift in Sources */,
 				86DE45ED2592654B00D5898F /* DetailView.swift in Sources */,
+				86FBD00925A3876600F36252 /* MovieRepositoryProtocol.swift in Sources */,
 				86DE45EB2592654B00D5898F /* ListMovieCrewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1234,6 +1281,7 @@
 				86DE4679259325FA00D5898F /* MovieVideoMapper.swift in Sources */,
 				86DE46622593255B00D5898F /* MovieEntry.swift in Sources */,
 				86DE46842593261500D5898F /* MovieModel.swift in Sources */,
+				86FBD02C25A388C500F36252 /* RemoteDataSourceProtocol.swift in Sources */,
 				86DE4674259325DF00D5898F /* MovieVideoResponse.swift in Sources */,
 				86DE46AD2593465D00D5898F /* NetworkImage.swift in Sources */,
 				86DE46822593261500D5898F /* MovieCreditModel.swift in Sources */,

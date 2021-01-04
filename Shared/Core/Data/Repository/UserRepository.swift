@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol UserRepositoryProtocol {
-  
-  func getCertificates() -> [CertificateModel]
-  func getMyClass() -> [ClassDicodingModel]
-  
-}
-
 final class UserRepository: NSObject {
   
   private override init() { }

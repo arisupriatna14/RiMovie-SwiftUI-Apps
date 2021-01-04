@@ -9,15 +9,6 @@ import Foundation
 import Combine
 import RealmSwift
 
-protocol LocaleDataSourceProtocol {
-  
-  func getMoviesFavorite() -> AnyPublisher<[MovieEntity], Error>
-  func getMovie(by movieId: Int) -> AnyPublisher<MovieEntity, Error>
-  func addMovie(from movie: MovieEntity) -> AnyPublisher<Bool, Error>
-  func updateMovieFavorite(by movieId: Int) -> AnyPublisher<MovieEntity, Error>
-  
-}
-
 final class LocaleDataSource: NSObject {
   
   private let realm: Realm?
