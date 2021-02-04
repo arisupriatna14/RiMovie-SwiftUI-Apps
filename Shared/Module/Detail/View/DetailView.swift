@@ -96,7 +96,6 @@ extension DetailView {
       self.presenter.updateMovieFavorite()
     } else {
       self.presenter.addMovieToFavorite()
-//      self.presenter.updateMovieFavorite()
     }
   }
 }

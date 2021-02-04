@@ -21,13 +21,13 @@ struct MovieCardHorizontal: View {
         .renderingMode(.original)
         .placeholder(content: {
           ShimmerView(opacity: $opacity)
-            .frame(width: 280, height: 160)
+            .frame(width: 290, height: 160)
         })
         .scaledToFit()
         .cornerRadius(10)
       
       Text(movie.title)
-        .font(.system(size: 16))
+        .font(.system(size: 16, weight: .medium))
         .lineLimit(1)
         .foregroundColor(Color("black"))
       

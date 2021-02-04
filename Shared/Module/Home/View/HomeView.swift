@@ -62,7 +62,7 @@ struct HomeView: View {
               .padding()
             
             #if !APPCLIP
-            BannerView(movies: upcoming)
+            BannerView(presenter: presenter, movies: upcoming)
               .frame(maxWidth: .infinity, maxHeight: .infinity)
             #else
             ScrollView(.horizontal, showsIndicators: false) {

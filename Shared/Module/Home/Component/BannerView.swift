@@ -10,16 +10,31 @@ import SDWebImageSwiftUI
 
 struct BannerView: View {
   
+  @ObservedObject var presenter: HomePresenter
   var movies: [MovieUIModel]
   
   var body: some View {
-    TabView {
-      ForEach(movies.suffix(5)) { item in
-        WebImage(url: item.posterPathURL)
-          .resizable()
-          .aspectRatio(contentMode: .fill)
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack {
+        ForEach(movies.suffix(10)) { item in
+          self.presenter.linkBuilderMovieDetail(for: item) {
+            WebImage(url: item.posterPathURL)
+              .placeholder(content: {
+                VStack {
+                  ProgressView()
+                }
+                .frame(maxWidth: UIScreen.main.bounds.width - 32, maxHeight: UIScreen.main.bounds.height / 1.5)
+                .background(Color.secondary)
+              })
+              .resizable()
+              .scaledToFill()
+              .frame(maxWidth: UIScreen.main.bounds.width - 32, maxHeight: UIScreen.main.bounds.height / 1.5)
+              .cornerRadius(30)
+              .padding(.trailing, 8)
+          }
+        }
       }
+      .padding(.horizontal)
     }
-    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
   }
 }
