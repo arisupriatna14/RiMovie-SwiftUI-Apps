@@ -1536,7 +1536,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RiMovieAppClip/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1561,7 +1561,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RiMovieAppClip/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
