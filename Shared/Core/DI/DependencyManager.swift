@@ -9,8 +9,15 @@ import Foundation
 import Resolver
 import RealmSwift
 
-extension Resolver {
-  static func registerSearchServices() {
-    
+extension Resolver: ResolverRegistering {
+  public static func registerAllServices() {
+    registerCoreServices()
+    registerHomeServices()
+    registerDetailServices()
+    #if !APPCLIP
+    registerSearchServices()
+    registerAboutServices()
+    registerFavoriteServices()
+    #endif
   }
 }

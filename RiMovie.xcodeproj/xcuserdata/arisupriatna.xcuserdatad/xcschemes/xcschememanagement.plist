@@ -46,25 +46,38 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>RiMovie (iOS).xcscheme_^#shared#^_</key>
+		<key>RiMovie (iOS).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<key>RiMovie (macOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>RiMovieAppClip.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>RiMovieWidgetExtension.xcscheme_^#shared#^_</key>
+		<key>RiMovieAppClip.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+		<key>RiMovieWidgetExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8693DDC32588318100D71477</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86DE46402593220F00D5898F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
