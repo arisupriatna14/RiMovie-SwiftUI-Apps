@@ -1,0 +1,21 @@
+name: Swift
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build iOS App (iOS, xcode12.4)
+      run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovie (iOS)" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Build AppClip (iOS, xcode12.4)
+      run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovieAppClip" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Build iOS App (iOS, xcode12.3)
+      run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovieWidgetExtension" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
