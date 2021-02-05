@@ -8,25 +8,33 @@
 import Foundation
 import Combine
 
-final class MovieRepository: NSObject {
+//final class MovieRepository: NSObject {
+//
+//  typealias MovieInstance = (LocaleDataSource, RemoteDataSource) -> MovieRepository
+//
+//  fileprivate let locale: LocaleDataSource
+//  fileprivate let remote: RemoteDataSource
+//
+//  private init(locale: LocaleDataSource, remote: RemoteDataSource) {
+//    self.locale = locale
+//    self.remote = remote
+//  }
+//
+//  static let sharedInstace: MovieInstance = { localeRepo, remoteRepo in
+//    return MovieRepository(locale: localeRepo, remote: remoteRepo)
+//  }
+//
+//}
+
+class MovieRepository: MovieRepositoryProtocol {
   
-  typealias MovieInstance = (LocaleDataSource, RemoteDataSource) -> MovieRepository
+  private let locale: LocaleDataSourceProtocol
+  private let remote: RemoteDataSourceProtocol
   
-  fileprivate let locale: LocaleDataSource
-  fileprivate let remote: RemoteDataSource
-  
-  private init(locale: LocaleDataSource, remote: RemoteDataSource) {
+  init(locale: LocaleDataSourceProtocol, remote: RemoteDataSourceProtocol) {
     self.locale = locale
     self.remote = remote
   }
-  
-  static let sharedInstace: MovieInstance = { localeRepo, remoteRepo in
-    return MovieRepository(locale: localeRepo, remote: remoteRepo)
-  }
-  
-}
-
-extension MovieRepository: MovieRepositoryProtocol {
 
   func getMoviesFavorite() -> AnyPublisher<[MovieModel], Error> {
     self.locale.getMoviesFavorite()

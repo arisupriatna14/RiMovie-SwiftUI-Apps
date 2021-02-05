@@ -82,9 +82,9 @@ struct DetailView: View {
     }
     .onAppear {
       if self.presenter.detailMovie == nil && self.presenter.movieFavorite == nil {
-        self.presenter.getMovie()
-        self.presenter.getMovieSimilar()
-        self.presenter.getMovieFavorite()
+        self.presenter.getMovie(movieId: movie.id)
+        self.presenter.getMovieSimilar(movieId: movie.id)
+        self.presenter.getMovieFavorite(movieId: movie.id)
       }
     }
   }
@@ -93,9 +93,9 @@ struct DetailView: View {
 extension DetailView {
   func addToFavorite() {
     if presenter.movieFavorite != nil {
-      self.presenter.updateMovieFavorite()
+      self.presenter.updateMovieFavorite(movieId: movie.id)
     } else {
-      self.presenter.addMovieToFavorite()
+      self.presenter.addMovieToFavorite(movie: movie)
     }
   }
 }
