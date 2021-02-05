@@ -16,11 +16,9 @@ jobs:
     - name: Run List Simulator
       run: xcrun simctl list
     - name: Install SwiftLint
-      run: |
-      sh install_swiftlint.sh
+      run: sh install_swiftlint.sh
     - name: Run SwiftLint
-      run: |
-      sh lint.sh
+      run: sh lint.sh
     - name: Build iOS App
       run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovie (iOS)" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
     - name: Build AppClip
