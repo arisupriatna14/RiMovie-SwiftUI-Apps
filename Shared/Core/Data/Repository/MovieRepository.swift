@@ -8,24 +8,6 @@
 import Foundation
 import Combine
 
-//final class MovieRepository: NSObject {
-//
-//  typealias MovieInstance = (LocaleDataSource, RemoteDataSource) -> MovieRepository
-//
-//  fileprivate let locale: LocaleDataSource
-//  fileprivate let remote: RemoteDataSource
-//
-//  private init(locale: LocaleDataSource, remote: RemoteDataSource) {
-//    self.locale = locale
-//    self.remote = remote
-//  }
-//
-//  static let sharedInstace: MovieInstance = { localeRepo, remoteRepo in
-//    return MovieRepository(locale: localeRepo, remote: remoteRepo)
-//  }
-//
-//}
-
 class MovieRepository: MovieRepositoryProtocol {
   
   private let locale: LocaleDataSourceProtocol

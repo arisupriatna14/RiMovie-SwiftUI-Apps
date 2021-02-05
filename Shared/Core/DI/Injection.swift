@@ -15,12 +15,15 @@ extension Resolver {
     register {
       RemoteDataSource() as RemoteDataSourceProtocol
     }
+
     register {
       LocaleDataSource(realm: try? Realm.init()) as LocaleDataSourceProtocol
     }
+
     register {
       MovieRepository(locale: resolve(), remote: resolve()) as MovieRepositoryProtocol
     }
+
     #if !APPCLIP
     register {
       UserRepository() as UserRepositoryProtocol
@@ -32,6 +35,7 @@ extension Resolver {
     register {
       HomePresenter(homeUseCase: resolve())
     }
+
     register {
       HomeInteractor(repository: resolve()) as HomeUseCase
     }
@@ -41,6 +45,7 @@ extension Resolver {
     register {
       DetailPresenter(detailUseCase: resolve())
     }
+
     register {
       DetailInteractor(repository: resolve()) as DetailUseCase
     }
@@ -51,6 +56,7 @@ extension Resolver {
     register {
       SearchPresenter(searchUseCase: resolve())
     }
+
     register {
       SearchInteractor(repository: resolve()) as SearchUseCase
     }
@@ -60,6 +66,7 @@ extension Resolver {
     register {
       AboutPresenter(aboutUseCase: resolve())
     }
+
     register {
       AboutInteractor(repository: resolve()) as AboutUseCase
     }
@@ -69,6 +76,7 @@ extension Resolver {
     register {
       FavoritePresenter(favoriteUseCase: resolve())
     }
+
     register {
       FavoriteInteractor(repository: resolve()) as FavoriteUseCase
     }
