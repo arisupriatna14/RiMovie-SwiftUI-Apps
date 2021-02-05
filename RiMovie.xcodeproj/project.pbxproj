@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0631887E25CC4BBF001DEBCF /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 0631887D25CC4BBF001DEBCF /* Resolver */; };
+		063188C825CC511A001DEBCF /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 063188C725CC511A001DEBCF /* Resolver */; };
+		06328F9325CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
+		06328F9425CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
+		06CFD47825CCE8570007D97C /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1625910B3100C31DAC /* SearchPresenter.swift */; };
 		8623AEAB2593D991005FF5D5 /* MovieWidgetMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */; };
 		8623AEB42598BFD2005FF5D5 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE352588584100D71477 /* MovieRepository.swift */; };
 		8623AEC5259B32E6005FF5D5 /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE456F2591A57100D5898F /* LocaleDataSource.swift */; };
@@ -55,7 +60,6 @@
 		86CFEB042591076400C31DAC /* ListMovieSimilarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB032591076400C31DAC /* ListMovieSimilarView.swift */; };
 		86CFEB092591085100C31DAC /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB082591085100C31DAC /* DetailRouter.swift */; };
 		86CFEB0F25910A3800C31DAC /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB0E25910A3800C31DAC /* SearchInteractor.swift */; };
-		86CFEB1725910B3100C31DAC /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1625910B3100C31DAC /* SearchPresenter.swift */; };
 		86CFEB1B25910E4800C31DAC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1A25910E4800C31DAC /* SearchView.swift */; };
 		86CFEB1F25910E5C00C31DAC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1E25910E5C00C31DAC /* SearchBar.swift */; };
 		86CFEB2525911B0700C31DAC /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB2425911B0700C31DAC /* SearchRouter.swift */; };
@@ -211,6 +215,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06328F9225CCDE5500BA2EFD /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWidgetMedium.swift; sourceTree = "<group>"; };
 		8623AED1259B34E7005FF5D5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8623AEF4259B60B8005FF5D5 /* MovieUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIModel.swift; sourceTree = "<group>"; };
@@ -315,6 +320,7 @@
 				86DE45792591A71C00D5898F /* RealmSwift in Frameworks */,
 				86DE45772591A71C00D5898F /* Realm in Frameworks */,
 				8693DE2E25884FDE00D71477 /* SDWebImageSwiftUI in Frameworks */,
+				0631887E25CC4BBF001DEBCF /* Resolver in Frameworks */,
 				8693DE2925884F1800D71477 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +339,7 @@
 				86DE462E2592661600D5898F /* SDWebImageSwiftUI in Frameworks */,
 				86DE4636259266F300D5898F /* Alamofire in Frameworks */,
 				86DE4629259265FD00D5898F /* RealmSwift in Frameworks */,
+				063188C825CC511A001DEBCF /* Resolver in Frameworks */,
 				86DE4627259265FD00D5898F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				8693DE3925885D4A00D71477 /* Injection.swift */,
+				06328F9225CCDE5500BA2EFD /* DependencyManager.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -948,6 +956,7 @@
 				8693DE2D25884FDE00D71477 /* SDWebImageSwiftUI */,
 				86DE45762591A71C00D5898F /* Realm */,
 				86DE45782591A71C00D5898F /* RealmSwift */,
+				0631887D25CC4BBF001DEBCF /* Resolver */,
 			);
 			productName = "RiMovie (iOS)";
 			productReference = 8693DDC42588318100D71477 /* RiMovie.app */;
@@ -988,6 +997,7 @@
 				86DE4628259265FD00D5898F /* RealmSwift */,
 				86DE462D2592661600D5898F /* SDWebImageSwiftUI */,
 				86DE4635259266F300D5898F /* Alamofire */,
+				063188C725CC511A001DEBCF /* Resolver */,
 			);
 			productName = RiMovieAppClip;
 			productReference = 86DE45BA2592637D00D5898F /* RiMovieAppClip.app */;
@@ -1049,6 +1059,7 @@
 				8693DE2725884F1800D71477 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				8693DE2C25884FDE00D71477 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = 8693DDC52588318100D71477 /* Products */;
 			projectDirPath = "";
@@ -1156,7 +1167,6 @@
 				86F2C05E25A2C8E00040C41F /* CustomEmptyView.swift in Sources */,
 				86DE45522591632400D5898F /* AboutPresenter.swift in Sources */,
 				86FBCFAB25A32D4F00F36252 /* HomeView.swift in Sources */,
-				86CFEB1725910B3100C31DAC /* SearchPresenter.swift in Sources */,
 				8623AF05259B613C005FF5D5 /* MovieCreditUIModel.swift in Sources */,
 				86FBD00F25A387A300F36252 /* UserRepositoryProtocol.swift in Sources */,
 				86DE45562591642D00D5898F /* AboutView.swift in Sources */,
@@ -1186,6 +1196,8 @@
 				86DE45952592454B00D5898F /* FavoritePresenter.swift in Sources */,
 				8691F8ED25896CF7001A1B83 /* DetailInteractor.swift in Sources */,
 				86DE456325918F1E00D5898F /* ClassItemView.swift in Sources */,
+				06328F9325CCDE5500BA2EFD /* DependencyManager.swift in Sources */,
+				06CFD47825CCE8570007D97C /* SearchPresenter.swift in Sources */,
 				86DE45702591A57100D5898F /* LocaleDataSource.swift in Sources */,
 				8693DE362588584100D71477 /* MovieRepository.swift in Sources */,
 				8693DDD02588318100D71477 /* RiMovieApp.swift in Sources */,
@@ -1212,6 +1224,7 @@
 				86DE45E32592652B00D5898F /* MovieCardHorizontal.swift in Sources */,
 				86DE45EA2592654B00D5898F /* ListVideoTrialView.swift in Sources */,
 				86DE46032592657300D5898F /* Results+Ext.swift in Sources */,
+				06328F9425CCDE5500BA2EFD /* DependencyManager.swift in Sources */,
 				86DE46082592657A00D5898F /* DetailInteractor.swift in Sources */,
 				86F2C01625A1ED220040C41F /* MovieVideoUIModel.swift in Sources */,
 				86DE461A2592659E00D5898F /* RemoteDataSource.swift in Sources */,
@@ -1425,7 +1438,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1448,7 +1461,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1523,7 +1536,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RiMovieAppClip/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1548,7 +1561,7 @@
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RiMovieAppClip/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1571,7 +1584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				INFOPLIST_FILE = RiMovieWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1595,7 +1608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5P7378L7B8;
 				INFOPLIST_FILE = RiMovieWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1663,6 +1676,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 		8693DE2725884F1800D71477 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1690,6 +1711,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0631887D25CC4BBF001DEBCF /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		063188C725CC511A001DEBCF /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
 		8693DE2825884F1800D71477 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8693DE2725884F1800D71477 /* XCRemoteSwiftPackageReference "Alamofire" */;

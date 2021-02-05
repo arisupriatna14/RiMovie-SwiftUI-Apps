@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class UserRepository: NSObject {
-  
-  private override init() { }
-  static let sharedInstance = UserRepository()
-  
-}
+//final class UserRepository: NSObject {
+//
+//  private override init() { }
+//  static let sharedInstance = UserRepository()
+//
+//}
 
-extension UserRepository: UserRepositoryProtocol {
+class UserRepository: UserRepositoryProtocol {
   
   func getCertificates() -> [CertificateModel] {
     return CertificateModel.stubs

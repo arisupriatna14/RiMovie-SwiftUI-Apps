@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import Resolver
 
 @main
 struct RiMovieApp: App {
   
-  @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHome())
-  @StateObject var searchPresenter = SearchPresenter(searchUseCase: Injection().provideSearch())
-  @StateObject var favoritePresenter = FavoritePresenter(favoriteUseCase: Injection().provideFavorite())
-  @StateObject var aboutPresenter = AboutPresenter(aboutUseCase: Injection().provideAbout())
+  @StateObject var homePresenter = HomePresenter(homeUseCase: Resolver.resolve())
+  @StateObject var searchPresenter = SearchPresenter(searchUseCase: Resolver.resolve())
+  @StateObject var favoritePresenter = FavoritePresenter(favoriteUseCase: Resolver.resolve())
+  @StateObject var aboutPresenter = AboutPresenter(aboutUseCase: Resolver.resolve())
   
   var body: some Scene {
     WindowGroup {

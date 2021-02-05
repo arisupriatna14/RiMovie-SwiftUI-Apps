@@ -41,7 +41,7 @@ struct MovieProvider: TimelineProvider {
 public class DataFetcher: ObservableObject {
   
   private var cancellables: Set<AnyCancellable> = []
-  private let remote = RemoteDataSource.sharedInstance
+  private let remote = RemoteDataSource()
   
   static let sharedInstance = DataFetcher()
 

@@ -9,20 +9,26 @@ import Foundation
 import Combine
 import RealmSwift
 
-final class LocaleDataSource: NSObject {
+//final class LocaleDataSource: NSObject {
+//
+//  private let realm: Realm?
+//
+//  private init(realm: Realm?) {
+//    self.realm = realm
+//  }
+//
+//  static let sharedInstance: (Realm?) -> LocaleDataSource = { realmDatabase in
+//    return LocaleDataSource(realm: realmDatabase)
+//  }
+//}
+
+class LocaleDataSource: LocaleDataSourceProtocol {
   
   private let realm: Realm?
   
-  private init(realm: Realm?) {
+  init(realm: Realm?) {
     self.realm = realm
   }
-  
-  static let sharedInstance: (Realm?) -> LocaleDataSource = { realmDatabase in
-    return LocaleDataSource(realm: realmDatabase)
-  }
-}
-
-extension LocaleDataSource: LocaleDataSourceProtocol {
   
   func getMoviesFavorite() -> AnyPublisher<[MovieEntity], Error> {
     return Future<[MovieEntity], Error> { completion in

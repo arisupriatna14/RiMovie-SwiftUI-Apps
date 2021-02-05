@@ -15,7 +15,7 @@ class DetailPresenter: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
   
   @Published var isLoadingState = false
-  @Published var movie: MovieUIModel
+//  @Published var movie: MovieUIModel
   @Published var similarMovie: [MovieUIModel]?
   @Published var detailMovie: MovieUIModel?
   @Published var errorMessage: String = ""
@@ -27,13 +27,13 @@ class DetailPresenter: ObservableObject {
   
   init(detailUseCase: DetailUseCase) {
     self.detailUseCase = detailUseCase
-    movie = detailUseCase.getMovie()
+//    movie = detailUseCase.getMovie()
   }
   
-  func getMovie() {
+  func getMovie(movieId: Int) {
     isLoadingState = true
     
-    detailUseCase.getDetailMovie()
+    detailUseCase.getDetailMovie(by: movieId)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -49,10 +49,10 @@ class DetailPresenter: ObservableObject {
       .store(in: &cancellables)
   }
   
-  func getMovieSimilar() {
+  func getMovieSimilar(movieId: Int) {
     isLoadingState = true
     
-    detailUseCase.getMovieSimilar()
+    detailUseCase.getMovieSimilar(by: movieId)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -77,8 +77,8 @@ class DetailPresenter: ObservableObject {
     }
   }
   
-  func addMovieToFavorite() {
-    detailUseCase.addMovieToFavorite()
+  func addMovieToFavorite(movie: MovieUIModel) {
+    detailUseCase.addMovieToFavorite(by: movie)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -90,14 +90,14 @@ class DetailPresenter: ObservableObject {
       }, receiveValue: { isSuccess in
         self.isAddedSuccessfully = isSuccess
         if isSuccess {
-          self.updateMovieFavorite()
+          self.updateMovieFavorite(movieId: movie.id)
         }
       })
       .store(in: &cancellables)
   }
   
-  func getMovieFavorite() {
-    detailUseCase.getMovieFavorite()
+  func getMovieFavorite(movieId: Int) {
+    detailUseCase.getMovieFavorite(by: movieId)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {
@@ -112,8 +112,8 @@ class DetailPresenter: ObservableObject {
       .store(in: &cancellables)
   }
   
-  func updateMovieFavorite() {
-    detailUseCase.updateFavoriteMovie()
+  func updateMovieFavorite(movieId: Int) {
+    detailUseCase.updateFavoriteMovie(by: movieId)
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
         switch error {

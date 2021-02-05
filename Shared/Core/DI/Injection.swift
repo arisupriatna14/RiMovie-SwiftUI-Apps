@@ -7,57 +7,71 @@
 
 import Foundation
 import RealmSwift
+import Resolver
 
-final class Injection: NSObject {
+extension Resolver {
   
-  private func provideRepository() -> MovieRepositoryProtocol {
-    let realm = try? Realm()
-    
-    let locale: LocaleDataSource = LocaleDataSource.sharedInstance(realm)
-    let remote: RemoteDataSource = RemoteDataSource.sharedInstance
-
-    return MovieRepository.sharedInstace(locale, remote)
+  static func registerCoreServices() {
+    register {
+      RemoteDataSource() as RemoteDataSourceProtocol
+    }
+    register {
+      LocaleDataSource(realm: try? Realm.init()) as LocaleDataSourceProtocol
+    }
+    register {
+      MovieRepository(locale: resolve(), remote: resolve()) as MovieRepositoryProtocol
+    }
+    #if !APPCLIP
+    register {
+      UserRepository() as UserRepositoryProtocol
+    }
+    #endif
+  }
+  
+  static func registerHomeServices() {
+    register {
+      HomePresenter(homeUseCase: resolve())
+    }
+    register {
+      HomeInteractor(repository: resolve()) as HomeUseCase
+    }
+  }
+  
+  static func registerDetailServices() {
+    register {
+      DetailPresenter(detailUseCase: resolve())
+    }
+    register {
+      DetailInteractor(repository: resolve()) as DetailUseCase
+    }
   }
   
   #if !APPCLIP
-  private func provideUserRepository() -> UserRepositoryProtocol {
-    return UserRepository.sharedInstance
-  }
-  #endif
-  
-  func provideHome() -> HomeUseCase {
-    let repository = provideRepository()
-    
-    return HomeInteractor(repository: repository)
+  static func registerSearchServices() {
+    register {
+      SearchPresenter(searchUseCase: resolve())
+    }
+    register {
+      SearchInteractor(repository: resolve()) as SearchUseCase
+    }
   }
   
-  func provideDetail(for movie: MovieUIModel) -> DetailUseCase {
-    let repository = provideRepository()
-    
-    return DetailInteractor(repository: repository, movie: movie)
+  static func registerAboutServices() {
+    register {
+      AboutPresenter(aboutUseCase: resolve())
+    }
+    register {
+      AboutInteractor(repository: resolve()) as AboutUseCase
+    }
   }
   
-  #if !APPCLIP
-  func provideSearch() -> SearchUseCase {
-    let repository = provideRepository()
-    
-    return SearchInteractor(repository: repository)
-  }
-  #endif
-  
-  #if !APPCLIP
-  func provideAbout() -> AboutUseCase {
-    let repository = provideUserRepository()
-    
-    return AboutInteractor(repository: repository)
-  }
-  #endif
-  
-  #if !APPCLIP
-  func provideFavorite() -> FavoriteUseCase {
-    let repository = provideRepository()
-    
-    return FavoriteInteractor(repository: repository)
+  static func registerFavoriteServices() {
+    register {
+      FavoritePresenter(favoriteUseCase: resolve())
+    }
+    register {
+      FavoriteInteractor(repository: resolve()) as FavoriteUseCase
+    }
   }
   #endif
   

@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Resolver
 
 @main
 struct RiMovieAppClipApp: App {
   
-  @StateObject var homePresenter = HomePresenter(homeUseCase: Injection().provideHome())
+  @StateObject var homePresenter = HomePresenter(homeUseCase: Resolver.resolve())
   
   var body: some Scene {
     WindowGroup {

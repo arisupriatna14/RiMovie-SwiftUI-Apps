@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct BannerView: View {
   
   @ObservedObject var presenter: HomePresenter
+  @State private var opacity: Double = 0.25
   var movies: [MovieUIModel]
   
   var body: some View {
@@ -19,14 +20,12 @@ struct BannerView: View {
         ForEach(movies.suffix(10)) { item in
           self.presenter.linkBuilderMovieDetail(for: item) {
             WebImage(url: item.posterPathURL)
-              .placeholder(content: {
-                VStack {
-                  ProgressView()
-                }
-                .frame(maxWidth: UIScreen.main.bounds.width - 32, maxHeight: UIScreen.main.bounds.height / 1.5)
-                .background(Color.secondary)
-              })
               .resizable()
+              .renderingMode(.original)
+              .placeholder(content: {
+                ShimmerView(opacity: $opacity)
+                  .frame(maxWidth: UIScreen.main.bounds.width - 32, maxHeight: UIScreen.main.bounds.height / 1.5)
+              })
               .scaledToFill()
               .frame(maxWidth: UIScreen.main.bounds.width - 32, maxHeight: UIScreen.main.bounds.height / 1.5)
               .cornerRadius(30)
