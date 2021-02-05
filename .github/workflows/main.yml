@@ -1,4 +1,4 @@
-name: Swift
+name: RiMovie
 
 on:
   push:
@@ -13,9 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build iOS App (iOS, xcode12.3)
-      run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovie (iOS)" -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
-    - name: Build AppClip (iOS, xcode12.3)
-      run: xcodebuild -project RiMovie.xcodeproj -scheme RiMovieAppClip -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
-    - name: Build iOS App (iOS, xcode12.3)
-      run: xcodebuild -project RiMovie.xcodeproj -scheme RiMovieWidgetExtension -destination "platform=iOS Simulator,name=iPhone 12 Pro Max"
+    - name: Run List Simulator
+      run: xcrun simctl list
+    - name: Build iOS App
+      run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovie (iOS)" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Build AppClip
+      run: xcodebuild -project RiMovie.xcodeproj -scheme RiMovieAppClip -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+    - name: Build Widget iOS
+      run: xcodebuild -project RiMovie.xcodeproj -scheme RiMovieWidgetExtension -destination "platform=iOS Simulator,name=iPhone 11 Pro"
