@@ -16,9 +16,11 @@ jobs:
     - name: Run List Simulator
       run: xcrun simctl list
     - name: Install SwiftLint
+      uses: actions/checkout@v2
       with:
         script: install_swiftlint.sh
     - name: Run SwiftLint
+      uses: actions/checkout@v2
       with:
         script: lint.sh
     - name: Build iOS App
