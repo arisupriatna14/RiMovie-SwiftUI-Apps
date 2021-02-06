@@ -11,7 +11,6 @@ import Resolver
 class DetailRouter {
   
   func makeMovieDetailView(for movie: MovieUIModel) -> some View {
-//    let detailUseCase = Injection.init().provideDetail(for: movie)
     let presenter = DetailPresenter(detailUseCase: Resolver.resolve())
     
     return DetailView(presenter: presenter, movie: movie)

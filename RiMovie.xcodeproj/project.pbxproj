@@ -11,6 +11,9 @@
 		063188C825CC511A001DEBCF /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 063188C725CC511A001DEBCF /* Resolver */; };
 		06328F9325CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
 		06328F9425CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
+		068701CF25CE8497006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701CE25CE8497006D5196 /* RiMovieCore */; };
+		068701D125CE84A3006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D025CE84A3006D5196 /* RiMovieCore */; };
+		068701D325CE84AB006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D225CE84AB006D5196 /* RiMovieCore */; };
 		06CFD47825CCE8570007D97C /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1625910B3100C31DAC /* SearchPresenter.swift */; };
 		8623AEAB2593D991005FF5D5 /* MovieWidgetMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */; };
 		8623AEB42598BFD2005FF5D5 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE352588584100D71477 /* MovieRepository.swift */; };
@@ -216,6 +219,7 @@
 
 /* Begin PBXFileReference section */
 		06328F9225CCDE5500BA2EFD /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
+		068701C525CE4C14006D5196 /* RiMovieCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RiMovieCore; path = ../Modules/RiMovieCore; sourceTree = "<group>"; };
 		8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWidgetMedium.swift; sourceTree = "<group>"; };
 		8623AED1259B34E7005FF5D5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8623AEF4259B60B8005FF5D5 /* MovieUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIModel.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				86DE45792591A71C00D5898F /* RealmSwift in Frameworks */,
 				86DE45772591A71C00D5898F /* Realm in Frameworks */,
 				8693DE2E25884FDE00D71477 /* SDWebImageSwiftUI in Frameworks */,
+				068701CF25CE8497006D5196 /* RiMovieCore in Frameworks */,
 				0631887E25CC4BBF001DEBCF /* Resolver in Frameworks */,
 				8693DE2925884F1800D71477 /* Alamofire in Frameworks */,
 			);
@@ -339,6 +344,7 @@
 				86DE462E2592661600D5898F /* SDWebImageSwiftUI in Frameworks */,
 				86DE4636259266F300D5898F /* Alamofire in Frameworks */,
 				86DE4629259265FD00D5898F /* RealmSwift in Frameworks */,
+				068701D125CE84A3006D5196 /* RiMovieCore in Frameworks */,
 				063188C825CC511A001DEBCF /* Resolver in Frameworks */,
 				86DE4627259265FD00D5898F /* Realm in Frameworks */,
 			);
@@ -351,6 +357,7 @@
 				86DE46582593251400D5898F /* Alamofire in Frameworks */,
 				86DE46452593221000D5898F /* SwiftUI.framework in Frameworks */,
 				86DE46432593221000D5898F /* WidgetKit.framework in Frameworks */,
+				068701D325CE84AB006D5196 /* RiMovieCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +414,7 @@
 		8693DDB72588317F00D71477 = {
 			isa = PBXGroup;
 			children = (
+				068701C525CE4C14006D5196 /* RiMovieCore */,
 				86F2C04425A206C70040C41F /* .swiftlint.yml */,
 				8693DDBC2588317F00D71477 /* Shared */,
 				8693DDC62588318100D71477 /* iOS */,
@@ -512,7 +520,6 @@
 				8693DDFE2588362E00D71477 /* Mapper */,
 				8693DDFD2588362800D71477 /* View */,
 				8693DDFB2588361D00D71477 /* Extension */,
-				8693DDFA2588361800D71477 /* Helper */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -555,13 +562,6 @@
 				8693DE1525883E5F00D71477 /* MovieCreditResponse.swift */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		8693DDFA2588361800D71477 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		8693DDFB2588361D00D71477 /* Extension */ = {
@@ -949,6 +949,7 @@
 				86DE45762591A71C00D5898F /* Realm */,
 				86DE45782591A71C00D5898F /* RealmSwift */,
 				0631887D25CC4BBF001DEBCF /* Resolver */,
+				068701CE25CE8497006D5196 /* RiMovieCore */,
 			);
 			productName = "RiMovie (iOS)";
 			productReference = 8693DDC42588318100D71477 /* RiMovie.app */;
@@ -990,6 +991,7 @@
 				86DE462D2592661600D5898F /* SDWebImageSwiftUI */,
 				86DE4635259266F300D5898F /* Alamofire */,
 				063188C725CC511A001DEBCF /* Resolver */,
+				068701D025CE84A3006D5196 /* RiMovieCore */,
 			);
 			productName = RiMovieAppClip;
 			productReference = 86DE45BA2592637D00D5898F /* RiMovieAppClip.app */;
@@ -1010,6 +1012,7 @@
 			name = RiMovieWidgetExtension;
 			packageProductDependencies = (
 				86DE46572593251400D5898F /* Alamofire */,
+				068701D225CE84AB006D5196 /* RiMovieCore */,
 			);
 			productName = RiMovieWidgetExtension;
 			productReference = 86DE46412593220F00D5898F /* RiMovieWidgetExtension.appex */;
@@ -1712,6 +1715,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		068701CE25CE8497006D5196 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RiMovieCore;
+		};
+		068701D025CE84A3006D5196 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RiMovieCore;
+		};
+		068701D225CE84AB006D5196 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RiMovieCore;
 		};
 		8693DE2825884F1800D71477 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
