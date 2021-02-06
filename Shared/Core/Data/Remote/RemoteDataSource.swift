@@ -9,14 +9,6 @@ import Foundation
 import Combine
 import Alamofire
 
-//final class RemoteDataSource: NSObject {
-//
-//  private override init() { }
-//
-//  static let sharedInstance: RemoteDataSource = RemoteDataSource()
-//
-//}
-
 class RemoteDataSource: RemoteDataSourceProtocol {
   
   func fetchMovies(from endpoint: Endpoints.Gets) -> AnyPublisher<[MovieResponse], Error> {

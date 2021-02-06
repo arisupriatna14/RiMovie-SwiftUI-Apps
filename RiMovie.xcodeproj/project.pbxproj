@@ -854,7 +854,6 @@
 			children = (
 				86DE46952593332600D5898F /* View */,
 				86DE46602593253700D5898F /* Entry */,
-				86DE465F2593253100D5898F /* Provider */,
 				86DE46472593221000D5898F /* RiMovieWidget.swift */,
 				86DE46492593221300D5898F /* Assets.xcassets */,
 				86DE464B2593221300D5898F /* Info.plist */,
@@ -862,18 +861,11 @@
 			path = RiMovieWidget;
 			sourceTree = "<group>";
 		};
-		86DE465F2593253100D5898F /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				86DE466B2593257400D5898F /* MovieTimelineProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
 		86DE46602593253700D5898F /* Entry */ = {
 			isa = PBXGroup;
 			children = (
 				86DE46612593255B00D5898F /* MovieEntry.swift */,
+				86DE466B2593257400D5898F /* MovieTimelineProvider.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -1126,7 +1118,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

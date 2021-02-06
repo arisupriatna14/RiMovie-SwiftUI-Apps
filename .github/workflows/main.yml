@@ -15,6 +15,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run List Simulator
       run: xcrun simctl list
+    - name: Install SwiftLint
+      run: |
+        sh .github/workflows/install_swiftlint.sh
+    - name: Run SwiftLint
+      run: |
+        sh .github/workflows/lint.sh
     - name: Build iOS App
       run: xcodebuild -project RiMovie.xcodeproj -scheme "RiMovie (iOS)" -destination "platform=iOS Simulator,name=iPhone 11 Pro"
     - name: Build AppClip
