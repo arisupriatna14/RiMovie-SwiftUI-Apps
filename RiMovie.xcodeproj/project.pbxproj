@@ -14,6 +14,8 @@
 		068701CF25CE8497006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701CE25CE8497006D5196 /* RiMovieCore */; };
 		068701D125CE84A3006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D025CE84A3006D5196 /* RiMovieCore */; };
 		068701D325CE84AB006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D225CE84AB006D5196 /* RiMovieCore */; };
+		06C0F73925D04D9B00356BB0 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0F73825D04D9B00356BB0 /* MovieCardView.swift */; };
+		06C0F73A25D04D9B00356BB0 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C0F73825D04D9B00356BB0 /* MovieCardView.swift */; };
 		06CFD47825CCE8570007D97C /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CFEB1625910B3100C31DAC /* SearchPresenter.swift */; };
 		8623AEAB2593D991005FF5D5 /* MovieWidgetMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */; };
 		8623AEB42598BFD2005FF5D5 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE352588584100D71477 /* MovieRepository.swift */; };
@@ -220,6 +222,7 @@
 /* Begin PBXFileReference section */
 		06328F9225CCDE5500BA2EFD /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		068701C525CE4C14006D5196 /* RiMovieCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RiMovieCore; path = ../Modules/RiMovieCore; sourceTree = "<group>"; };
+		06C0F73825D04D9B00356BB0 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
 		8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWidgetMedium.swift; sourceTree = "<group>"; };
 		8623AED1259B34E7005FF5D5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8623AEF4259B60B8005FF5D5 /* MovieUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIModel.swift; sourceTree = "<group>"; };
@@ -683,6 +686,7 @@
 				865ECB282588BB74007B798B /* BannerView.swift */,
 				865ECB2E2588C761007B798B /* MovieCardVertical.swift */,
 				865ECB322588CB91007B798B /* MovieCardHorizontal.swift */,
+				06C0F73825D04D9B00356BB0 /* MovieCardView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1130,6 +1134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C0F73925D04D9B00356BB0 /* MovieCardView.swift in Sources */,
 				8693DE0E2588398100D71477 /* MovieModel.swift in Sources */,
 				8623AEFF259B611C005FF5D5 /* MovieVideoUIModel.swift in Sources */,
 				86CFEB092591085100C31DAC /* DetailRouter.swift in Sources */,
@@ -1235,6 +1240,7 @@
 				86DE45F32592656100D5898F /* ShimmerView.swift in Sources */,
 				86FBCFB425A32E7700F36252 /* HomeView.swift in Sources */,
 				86DE45EC2592654B00D5898F /* DetailRouter.swift in Sources */,
+				06C0F73A25D04D9B00356BB0 /* MovieCardView.swift in Sources */,
 				86DE460E2592658100D5898F /* MovieCreditModel.swift in Sources */,
 				86DE46182592659E00D5898F /* MovieResponse.swift in Sources */,
 				86DE45DF2592652B00D5898F /* HomeRouter.swift in Sources */,

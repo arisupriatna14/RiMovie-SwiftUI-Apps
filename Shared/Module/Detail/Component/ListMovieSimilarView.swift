@@ -23,15 +23,15 @@ struct ListMovieSimilarView: View {
         HStack {
           ForEach(similarMovie) { item in
             self.presenter.linkBuilderMovieDetail(for: item) {
-              MovieCardHorizontal(movie: item)
-                .frame(width: 280)
-                .padding(.trailing, 8)
+              MovieCardView(movie: item)
+                .padding(.trailing, 4)
             }
+            .buttonStyle(PlainButtonStyle())
           }
         }
-        .padding(.horizontal)
+        .padding(.all)
+        .padding(.bottom)
       }
-      .padding(.bottom, 24)
     }
   }
 }

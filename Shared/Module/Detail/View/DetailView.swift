@@ -41,21 +41,15 @@ struct DetailView: View {
               if similarMovie.count > 0 {
                 ListMovieSimilarView(similarMovie: similarMovie, presenter: presenter)
               }
-            }
-            
-            Group {
+              
               if detailMovie.cast.count > 0 {
                 ListMovieCastView(movieCast: detailMovie.cast)
               }
-            }
-            
-            Group {
+              
               if detailMovie.crew.count > 0 {
                 ListMovieCrewView(movieCrew: detailMovie.crew)
               }
-            }
-            
-            Group {
+              
               if detailMovie.videos.count > 0 {
                 ListMovieTrailersView(videoTrailers: detailMovie.videos, selectedVideo: $selectedVideo)
               }

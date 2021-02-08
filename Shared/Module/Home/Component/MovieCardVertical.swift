@@ -19,7 +19,7 @@ struct MovieCardVertical: View {
       .renderingMode(.original)
       .placeholder(content: {
         ShimmerView(opacity: $opacity)
-          .frame(width: 200, height: 250)
+          .frame(width: 225, height: 340)
       })
       .scaledToFit()
       .frame(width: 200)

@@ -21,7 +21,7 @@ struct MovieCardHorizontal: View {
         .renderingMode(.original)
         .placeholder(content: {
           ShimmerView(opacity: $opacity)
-            .frame(width: 290, height: 160)
+            .frame(width: 300, height: 188)
         })
         .scaledToFit()
         .cornerRadius(10)

@@ -88,15 +88,15 @@ struct HomeView: View {
               HStack {
                 ForEach(topRated) { item in
                   self.presenter.linkBuilderMovieDetail(for: item) {
-                    MovieCardHorizontal(movie: item, isShowOverview: true)
-                      .frame(width: 280)
-                      .padding(.trailing, 8)
+                    MovieCardView(movie: item)
+                      .padding(.trailing, 4)
                   }
+                  .buttonStyle(PlainButtonStyle())
                 }
               }
               .padding(.horizontal)
+              .padding(.bottom, 36)
             }
-            .padding(.bottom, 24)
           }
         }
       } else {
