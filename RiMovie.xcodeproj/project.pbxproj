@@ -11,12 +11,12 @@
 		063188C825CC511A001DEBCF /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 063188C725CC511A001DEBCF /* Resolver */; };
 		06328F9325CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
 		06328F9425CCDE5500BA2EFD /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328F9225CCDE5500BA2EFD /* DependencyManager.swift */; };
+		067248F425D50E5500A013A2 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 067248F325D50E5500A013A2 /* RiMovieCore */; };
+		067248FE25D50F7400A013A2 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 067248FD25D50F7400A013A2 /* RiMovieCore */; };
+		0672490025D50F7A00A013A2 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 067248FF25D50F7A00A013A2 /* RiMovieCore */; };
 		0681E0D425D3916000A048B5 /* SearchModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0681E0D325D3916000A048B5 /* SearchModule */; };
 		0681E0DE25D3974A00A048B5 /* SearchModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0681E0DD25D3974A00A048B5 /* SearchModule */; };
 		0681E0E025D3975100A048B5 /* SearchModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0681E0DF25D3975100A048B5 /* SearchModule */; };
-		068701CF25CE8497006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701CE25CE8497006D5196 /* RiMovieCore */; };
-		068701D125CE84A3006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D025CE84A3006D5196 /* RiMovieCore */; };
-		068701D325CE84AB006D5196 /* RiMovieCore in Frameworks */ = {isa = PBXBuildFile; productRef = 068701D225CE84AB006D5196 /* RiMovieCore */; };
 		0692F14B25D173930090612E /* MovieModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0692F14A25D173930090612E /* MovieModule */; };
 		0692F14D25D1739A0090612E /* MovieModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0692F14C25D1739A0090612E /* MovieModule */; };
 		0692F14F25D173A30090612E /* MovieModule in Frameworks */ = {isa = PBXBuildFile; productRef = 0692F14E25D173A30090612E /* MovieModule */; };
@@ -50,8 +50,6 @@
 		86DE45562591642D00D5898F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE45552591642D00D5898F /* AboutView.swift */; };
 		86DE455B259164F200D5898F /* CertificateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE455A259164F200D5898F /* CertificateItemView.swift */; };
 		86DE456325918F1E00D5898F /* ClassItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE456225918F1E00D5898F /* ClassItemView.swift */; };
-		86DE45772591A71C00D5898F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86DE45762591A71C00D5898F /* Realm */; };
-		86DE45792591A71C00D5898F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86DE45782591A71C00D5898F /* RealmSwift */; };
 		86DE459B2592455500D5898F /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE459A2592455500D5898F /* FavoriteRouter.swift */; };
 		86DE459F2592455C00D5898F /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE459E2592455C00D5898F /* FavoriteView.swift */; };
 		86DE45BD2592637D00D5898F /* RiMovieAppClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE45BC2592637D00D5898F /* RiMovieAppClipApp.swift */; };
@@ -72,8 +70,6 @@
 		86DE45F22592656100D5898F /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86296162258A137E00DE19AB /* SafariView.swift */; };
 		86DE45F32592656100D5898F /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9E11E258A00F000E175C1 /* ShimmerView.swift */; };
 		86DE46122592658500D5898F /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693DE3925885D4A00D71477 /* Injection.swift */; };
-		86DE4627259265FD00D5898F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86DE4626259265FD00D5898F /* Realm */; };
-		86DE4629259265FD00D5898F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86DE4628259265FD00D5898F /* RealmSwift */; };
 		86DE462E2592661600D5898F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 86DE462D2592661600D5898F /* SDWebImageSwiftUI */; };
 		86DE46432593221000D5898F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DE46422593220F00D5898F /* WidgetKit.framework */; };
 		86DE46452593221000D5898F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DE46442593221000D5898F /* SwiftUI.framework */; };
@@ -137,7 +133,6 @@
 		06328F9225CCDE5500BA2EFD /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		0635055A25D3B008007E362D /* AboutModule */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AboutModule; path = ../Modules/AboutModule; sourceTree = "<group>"; };
 		0681E0CE25D3875400A048B5 /* SearchModule */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SearchModule; path = ../Modules/SearchModule; sourceTree = "<group>"; };
-		068701C525CE4C14006D5196 /* RiMovieCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RiMovieCore; path = ../Modules/RiMovieCore; sourceTree = "<group>"; };
 		06C0F73825D04D9B00356BB0 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
 		06C5AA2025D10B4F00F3482F /* MovieModule */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MovieModule; path = ../Modules/MovieModule; sourceTree = "<group>"; };
 		8623AEAA2593D991005FF5D5 /* MovieWidgetMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieWidgetMedium.swift; sourceTree = "<group>"; };
@@ -198,12 +193,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0681E0D425D3916000A048B5 /* SearchModule in Frameworks */,
-				86DE45792591A71C00D5898F /* RealmSwift in Frameworks */,
-				86DE45772591A71C00D5898F /* Realm in Frameworks */,
 				0692F14B25D173930090612E /* MovieModule in Frameworks */,
 				06A19FEB25D3D2F20073D1F5 /* AboutModule in Frameworks */,
+				067248F425D50E5500A013A2 /* RiMovieCore in Frameworks */,
 				8693DE2E25884FDE00D71477 /* SDWebImageSwiftUI in Frameworks */,
-				068701CF25CE8497006D5196 /* RiMovieCore in Frameworks */,
 				0631887E25CC4BBF001DEBCF /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,12 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0681E0DE25D3974A00A048B5 /* SearchModule in Frameworks */,
+				067248FE25D50F7400A013A2 /* RiMovieCore in Frameworks */,
 				86DE462E2592661600D5898F /* SDWebImageSwiftUI in Frameworks */,
-				86DE4629259265FD00D5898F /* RealmSwift in Frameworks */,
 				0692F14D25D1739A0090612E /* MovieModule in Frameworks */,
-				068701D125CE84A3006D5196 /* RiMovieCore in Frameworks */,
 				063188C825CC511A001DEBCF /* Resolver in Frameworks */,
-				86DE4627259265FD00D5898F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DE46452593221000D5898F /* SwiftUI.framework in Frameworks */,
+				0672490025D50F7A00A013A2 /* RiMovieCore in Frameworks */,
 				86DE46432593221000D5898F /* WidgetKit.framework in Frameworks */,
 				0692F14F25D173A30090612E /* MovieModule in Frameworks */,
 				0681E0E025D3975100A048B5 /* SearchModule in Frameworks */,
-				068701D325CE84AB006D5196 /* RiMovieCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +267,6 @@
 				0635055A25D3B008007E362D /* AboutModule */,
 				0681E0CE25D3875400A048B5 /* SearchModule */,
 				06C5AA2025D10B4F00F3482F /* MovieModule */,
-				068701C525CE4C14006D5196 /* RiMovieCore */,
 				86F2C04425A206C70040C41F /* .swiftlint.yml */,
 				8693DDBC2588317F00D71477 /* Shared */,
 				8693DDC62588318100D71477 /* iOS */,
@@ -617,13 +607,11 @@
 			name = "RiMovie (iOS)";
 			packageProductDependencies = (
 				8693DE2D25884FDE00D71477 /* SDWebImageSwiftUI */,
-				86DE45762591A71C00D5898F /* Realm */,
-				86DE45782591A71C00D5898F /* RealmSwift */,
 				0631887D25CC4BBF001DEBCF /* Resolver */,
-				068701CE25CE8497006D5196 /* RiMovieCore */,
 				0692F14A25D173930090612E /* MovieModule */,
 				0681E0D325D3916000A048B5 /* SearchModule */,
 				06A19FEA25D3D2F20073D1F5 /* AboutModule */,
+				067248F325D50E5500A013A2 /* RiMovieCore */,
 			);
 			productName = "RiMovie (iOS)";
 			productReference = 8693DDC42588318100D71477 /* RiMovie.app */;
@@ -660,13 +648,11 @@
 			);
 			name = RiMovieAppClip;
 			packageProductDependencies = (
-				86DE4626259265FD00D5898F /* Realm */,
-				86DE4628259265FD00D5898F /* RealmSwift */,
 				86DE462D2592661600D5898F /* SDWebImageSwiftUI */,
 				063188C725CC511A001DEBCF /* Resolver */,
-				068701D025CE84A3006D5196 /* RiMovieCore */,
 				0692F14C25D1739A0090612E /* MovieModule */,
 				0681E0DD25D3974A00A048B5 /* SearchModule */,
+				067248FD25D50F7400A013A2 /* RiMovieCore */,
 			);
 			productName = RiMovieAppClip;
 			productReference = 86DE45BA2592637D00D5898F /* RiMovieAppClip.app */;
@@ -686,9 +672,9 @@
 			);
 			name = RiMovieWidgetExtension;
 			packageProductDependencies = (
-				068701D225CE84AB006D5196 /* RiMovieCore */,
 				0692F14E25D173A30090612E /* MovieModule */,
 				0681E0DF25D3975100A048B5 /* SearchModule */,
+				067248FF25D50F7A00A013A2 /* RiMovieCore */,
 			);
 			productName = RiMovieWidgetExtension;
 			productReference = 86DE46412593220F00D5898F /* RiMovieWidgetExtension.appex */;
@@ -728,8 +714,8 @@
 			mainGroup = 8693DDB72588317F00D71477;
 			packageReferences = (
 				8693DE2C25884FDE00D71477 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */,
+				067248F225D50E5500A013A2 /* XCRemoteSwiftPackageReference "RiMovie-CoreModule" */,
 			);
 			productRefGroup = 8693DDC52588318100D71477 /* Products */;
 			projectDirPath = "";
@@ -1266,20 +1252,20 @@
 				minimumVersion = 1.4.0;
 			};
 		};
+		067248F225D50E5500A013A2 /* XCRemoteSwiftPackageReference "RiMovie-CoreModule" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/arisupriatna14/RiMovie-CoreModule.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		8693DE2C25884FDE00D71477 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.5.0;
-			};
-		};
-		86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1295,6 +1281,21 @@
 			package = 0631887C25CC4BBF001DEBCF /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
 		};
+		067248F325D50E5500A013A2 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 067248F225D50E5500A013A2 /* XCRemoteSwiftPackageReference "RiMovie-CoreModule" */;
+			productName = RiMovieCore;
+		};
+		067248FD25D50F7400A013A2 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 067248F225D50E5500A013A2 /* XCRemoteSwiftPackageReference "RiMovie-CoreModule" */;
+			productName = RiMovieCore;
+		};
+		067248FF25D50F7A00A013A2 /* RiMovieCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 067248F225D50E5500A013A2 /* XCRemoteSwiftPackageReference "RiMovie-CoreModule" */;
+			productName = RiMovieCore;
+		};
 		0681E0D325D3916000A048B5 /* SearchModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SearchModule;
@@ -1306,18 +1307,6 @@
 		0681E0DF25D3975100A048B5 /* SearchModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SearchModule;
-		};
-		068701CE25CE8497006D5196 /* RiMovieCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RiMovieCore;
-		};
-		068701D025CE84A3006D5196 /* RiMovieCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RiMovieCore;
-		};
-		068701D225CE84AB006D5196 /* RiMovieCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RiMovieCore;
 		};
 		0692F14A25D173930090612E /* MovieModule */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1339,26 +1328,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8693DE2C25884FDE00D71477 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		86DE45762591A71C00D5898F /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		86DE45782591A71C00D5898F /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-		86DE4626259265FD00D5898F /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		86DE4628259265FD00D5898F /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86DE45752591A71C00D5898F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
 		};
 		86DE462D2592661600D5898F /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

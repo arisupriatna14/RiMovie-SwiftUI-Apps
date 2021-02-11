@@ -67,19 +67,19 @@ extension Resolver {
   
   static func registerCoreServices() {
     register {
-      GetMoviesRemoteDataSource(endpoint: "")
+      GetMoviesRemoteDataSource()
     }
     
     register {
-      GetMovieRemoteDataSource(endpoint: "")
+      GetMovieRemoteDataSource(endpoint: Endpoints.Gets.detail.url)
     }
     
     register {
-      GetMovieSimilarRemoteDataSource(endpoint: "")
+      GetMovieSimilarRemoteDataSource(endpoint: Endpoints.Gets.similarMovie.url)
     }
     
     register {
-      SearchMovieRemoteDataSource(endpoint: "")
+      SearchMovieRemoteDataSource(endpoint: Endpoints.Gets.searchMovie.url)
     }
     
     register {

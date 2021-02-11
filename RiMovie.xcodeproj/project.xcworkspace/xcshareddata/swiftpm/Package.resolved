@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "RiMovieCore",
+        "repositoryURL": "https://github.com/arisupriatna14/RiMovie-CoreModule.git",
+        "state": {
+          "branch": null,
+          "revision": "d539f1c2d073d100be29f77ff650ba2daaeb5318",
+          "version": "0.0.1"
+        }
+      },
+      {
         "package": "SDWebImage",
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {

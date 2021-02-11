@@ -42,7 +42,7 @@ struct MovieProvider: TimelineProvider {
 public class DataFetcher: ObservableObject {
   
   private var cancellables: Set<AnyCancellable> = []
-  private let remote = GetMoviesRemoteDataSource(endpoint: Endpoints.Gets.nowPlaying.url)
+  private let remote = GetMoviesRemoteDataSource()
   
   static let sharedInstance = DataFetcher()
 
