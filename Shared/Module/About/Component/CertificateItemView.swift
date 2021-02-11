@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AboutModule
 
 struct CertificateItemView: View {
   var certificate: CertificateUIModel

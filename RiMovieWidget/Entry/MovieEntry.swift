@@ -6,6 +6,7 @@
 //
 
 import WidgetKit
+import MovieModule
 
 struct MovieEntry: TimelineEntry {
   

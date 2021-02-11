@@ -11,6 +11,8 @@ import RealmSwift
 
 extension Resolver: ResolverRegistering {
   public static func registerAllServices() {
+    registerAllMapperServices()
+    registerAllRepositoryServices()
     registerCoreServices()
     registerHomeServices()
     registerDetailServices()

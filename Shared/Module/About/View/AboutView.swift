@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import AboutModule
 
 struct AboutView: View {
   
   @ObservedObject var presenter: AboutPresenter
   @State private var selectedCertificate: CertificateUIModel?
+  let columns: [GridItem] = [GridItem(.adaptive(minimum: 160), spacing: 16)]
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -27,53 +29,49 @@ struct AboutView: View {
         .fontWeight(.bold)
       
       VStack(alignment: .leading) {
-        Group {
-          if let certificates = presenter.certificates {
-            Text("My Certificates")
-              .font(.title3)
-              .fontWeight(.bold)
-              .padding()
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-              HStack {
-                ForEach(certificates) { item in
-                  CertificateItemView(certificate: item)
-                    .frame(width: 280)
-                    .padding(.trailing, 8)
-                    .onTapGesture {
-                      self.selectedCertificate = item
-                    }
-                }
-              }
-              .padding(.horizontal)
-            }
-          }
-        }
+        Text("My Certificates")
+          .font(.title3)
+          .fontWeight(.bold)
+          .padding()
         
-        Group {
-          if let classDicoding = presenter.classes {
-            Text("My Class")
-              .font(.title3)
-              .fontWeight(.bold)
-              .padding()
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-              HStack {
-                ForEach(classDicoding) { item in
-                  Link(destination: URL(string: item.url)!) {
-                    ClassItemView(classDicoding: item)
-                      .padding(.trailing, 8)
+        if let certificates = presenter.certificates {
+          ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+              ForEach(certificates) { item in
+                CertificateItemView(certificate: item)
+                  .frame(width: 280)
+                  .padding(.trailing, 8)
+                  .onTapGesture {
+                    self.selectedCertificate = item
                   }
-                  .buttonStyle(PlainButtonStyle())
-                }
               }
-              .padding(.horizontal)
             }
+            .padding(.horizontal)
           }
         }
-        
       }
       .padding(.bottom, 24)
+      
+      VStack(alignment: .leading) {
+        Text("My Class")
+          .font(.title3)
+          .fontWeight(.bold)
+          .padding(.horizontal)
+
+        if let classDicoding = presenter.classes {
+          LazyVStack {
+            LazyVGrid(columns: columns, spacing: 16) {
+              ForEach(classDicoding) { item in
+                Link(destination: URL(string: item.url)!) {
+                  ClassItemView(classDicoding: item)
+                }
+                .buttonStyle(PlainButtonStyle())
+              }
+            }
+          }
+          .padding(.all)
+        }
+      }
     }
     .navigationTitle("About")
     .sheet(item: self.$selectedCertificate) { certificate in

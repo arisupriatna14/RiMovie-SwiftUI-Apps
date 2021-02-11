@@ -6,48 +6,50 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct ContentView: View {
   
-  @EnvironmentObject var homePresenter: HomePresenter
-  @EnvironmentObject var searchPresenter: SearchPresenter
-  @EnvironmentObject var favoritePresenter: FavoritePresenter
-  @EnvironmentObject var aboutPresenter: AboutPresenter
-  
+  @State private var selection: String = "home"
+
   var body: some View {
-    TabView {
+    TabView(selection: $selection) {
       NavigationView {
-        HomeView(presenter: homePresenter)
+        HomeView(presenter: Resolver.resolve())
       }
       .navigationViewStyle(StackNavigationViewStyle())
       .tabItem {
         Image(systemName: "play.circle.fill")
         Text("Watch Now")
       }
+      .tag("home")
       
       NavigationView {
-        FavoriteView(presenter: favoritePresenter)
+        FavoriteView(presenter: Resolver.resolve())
       }
       .navigationViewStyle(StackNavigationViewStyle())
       .tabItem {
         Image(systemName: "heart.circle.fill")
         Text("Favorite")
       }
+      .tag("favorite")
       
-      SearchView(presenter: searchPresenter)
+      SearchView(presenter: Resolver.resolve())
         .tabItem {
           Image(systemName: "magnifyingglass.circle.fill")
           Text("Search")
         }
+        .tag("search")
       
       NavigationView {
-        AboutView(presenter: aboutPresenter)
+        AboutView(presenter: Resolver.resolve())
       }
       .navigationViewStyle(StackNavigationViewStyle())
       .tabItem {
         Image(systemName: "person.crop.circle.fill")
         Text("About")
       }
+      .tag("about")
     }
   }
 }

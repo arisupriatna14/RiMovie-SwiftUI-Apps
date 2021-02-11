@@ -7,13 +7,12 @@
 
 import SwiftUI
 import Resolver
+import MovieModule
 
 class DetailRouter {
   
   func makeMovieDetailView(for movie: MovieUIModel) -> some View {
-    let presenter = DetailPresenter(detailUseCase: Resolver.resolve())
-    
-    return DetailView(presenter: presenter, movie: movie)
+    return DetailView(presenter: Resolver.resolve(), movie: movie)
   }
   
 }

@@ -7,10 +7,18 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MovieModule
+import Resolver
 
 struct DetailView: View {
   
-  @ObservedObject var presenter: DetailPresenter
+  @ObservedObject var presenter: DetailMoviePresenter<
+    MovieInteractor,
+    MovieSimilarInteractor,
+    AddMovieFavoriteInteractor,
+    MovieFavoriteInteractor,
+    UpdateMovieFavoriteInteractor
+  >
   @State private var opacity: Double = 0.25
   @State private var selectedVideo: MovieVideoUIModel?
   
@@ -19,7 +27,7 @@ struct DetailView: View {
   var body: some View {
     ZStack {
       if let detailMovie = presenter.detailMovie,
-         let similarMovie = presenter.similarMovie {
+         let similarMovie = presenter.similarMovieList {
         
         ScrollView(.vertical) {
           VStack(alignment: .leading) {
@@ -39,23 +47,17 @@ struct DetailView: View {
             
             Group {
               if similarMovie.count > 0 {
-                ListMovieSimilarView(similarMovie: similarMovie, presenter: presenter)
+                ListMovieSimilarView(similarMovie: similarMovie)
               }
-            }
-            
-            Group {
+              
               if detailMovie.cast.count > 0 {
                 ListMovieCastView(movieCast: detailMovie.cast)
               }
-            }
-            
-            Group {
+              
               if detailMovie.crew.count > 0 {
                 ListMovieCrewView(movieCrew: detailMovie.crew)
               }
-            }
-            
-            Group {
+              
               if detailMovie.videos.count > 0 {
                 ListMovieTrailersView(videoTrailers: detailMovie.videos, selectedVideo: $selectedVideo)
               }
@@ -81,11 +83,11 @@ struct DetailView: View {
       #endif
     }
     .onAppear {
-      if self.presenter.detailMovie == nil && self.presenter.movieFavorite == nil {
-        self.presenter.getMovie(movieId: movie.id)
-        self.presenter.getMovieSimilar(movieId: movie.id)
-        self.presenter.getMovieFavorite(movieId: movie.id)
+      if self.presenter.detailMovie == nil && self.presenter.similarMovieList == nil {
+        self.presenter.getMovie(request: movie.id)
+        self.presenter.getMovieSimilar(request: movie.id)
       }
+      self.presenter.getMovieFavorite(request: movie.id)
     }
   }
 }
@@ -93,9 +95,9 @@ struct DetailView: View {
 extension DetailView {
   func addToFavorite() {
     if presenter.movieFavorite != nil {
-      self.presenter.updateMovieFavorite(movieId: movie.id)
+      self.presenter.updateMovie(request: movie.id)
     } else {
-      self.presenter.addMovieToFavorite(movie: movie)
+      self.presenter.addMovieToFavorite(request: movie)
     }
   }
 }

@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import MovieModule
+import Resolver
 
 struct ContentView: View {
   
-  @EnvironmentObject var homePresenter: HomePresenter
-  
   var body: some View {
     NavigationView {
-      HomeView(presenter: homePresenter)
+      HomeView(presenter: Resolver.resolve())
     }
     .navigationViewStyle(StackNavigationViewStyle())
   }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

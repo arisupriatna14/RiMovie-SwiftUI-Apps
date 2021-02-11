@@ -6,25 +6,27 @@
 //
 
 import SwiftUI
+import AboutModule
 
 struct ClassItemView: View {
   
   var classDicoding: ClassDicodingUIModel
   
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 16) {
       Image(classDicoding.image)
         .resizable()
         .scaledToFit()
-        .frame(width: 220)
         .cornerRadius(10)
       
       Text(classDicoding.name)
-        .font(.subheadline)
-        .fontWeight(.medium)
-        .lineLimit(1)
-        .frame(width: 220)
+        .lineLimit(2)
+        .font(.system(size: 14, weight: .semibold))
     }
+    .padding(.all)
+    .background(Color.white)
+    .cornerRadius(16)
+    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0.0, y: 20)
   }
 }
 
