@@ -8,63 +8,147 @@
 import Foundation
 import RealmSwift
 import Resolver
+import RiMovieCore
+import MovieModule
+import SearchModule
+import AboutModule
 
 extension Resolver {
   
-  static func registerCoreServices() {
+  static func registerAllMapperServices() {
     register {
-      RemoteDataSource() as RemoteDataSourceProtocol
+      MovieMapper()
     }
-
+    
     register {
-      LocaleDataSource(realm: try? Realm.init()) as LocaleDataSourceProtocol
+      MovieDetailMapper()
     }
-
+  }
+  
+  static func registerAllRepositoryServices() {
     register {
-      MovieRepository(locale: resolve(), remote: resolve()) as MovieRepositoryProtocol
+      MoviesRepository(remote: resolve(), mapper: resolve())
     }
-
+    
+    register {
+      MovieRepository(remote: resolve(), mapper: resolve())
+    }
+    
+    register {
+      MovieSimilarRepository(remote: resolve(), mapper: resolve())
+    }
+    
+    register {
+      MoviesFavoriteRepository(locale: resolve(), mapper: resolve())
+    }
+    
+    register {
+      MovieFavoriteRepository(locale: resolve(), mapper: resolve())
+    }
+    
+    register {
+      UpdateFavoriteRepository(locale: resolve(), mapper: resolve())
+    }
+    
+    register {
+      AddFavoriteRepository(locale: resolve(), mapper: resolve())
+    }
+    
     #if !APPCLIP
     register {
-      UserRepository() as UserRepositoryProtocol
+      SearchRepository(remote: resolve(), mapper: resolve())
+    }
+    
+    register {
+      AboutRepository() as AboutRepositoryProtocol
     }
     #endif
   }
   
+  static func registerCoreServices() {
+    register {
+      GetMoviesRemoteDataSource(endpoint: "")
+    }
+    
+    register {
+      GetMovieRemoteDataSource(endpoint: "")
+    }
+    
+    register {
+      GetMovieSimilarRemoteDataSource(endpoint: "")
+    }
+    
+    register {
+      SearchMovieRemoteDataSource(endpoint: "")
+    }
+    
+    register {
+      FavoriteMovieLocaleDataSource(realm: try? Realm())
+    }
+  }
+  
   static func registerHomeServices() {
     register {
-      HomePresenter(homeUseCase: resolve())
+      MoviesPresenter<MoviesInteractor>(moviesUseCase: resolve())
     }
 
     register {
-      HomeInteractor(repository: resolve()) as HomeUseCase
+      MoviesInteractor(repository: resolve())
     }
   }
   
   static func registerDetailServices() {
     register {
-      DetailPresenter(detailUseCase: resolve())
+      DetailMoviePresenter<
+        MovieInteractor,
+        MovieSimilarInteractor,
+        AddMovieFavoriteInteractor,
+        MovieFavoriteInteractor,
+        UpdateMovieFavoriteInteractor
+      >(
+        movieUseCase: resolve(),
+        movieSimilarUseCase: resolve(),
+        addFavoriteUseCase: resolve(),
+        getFavoriteUseCase: resolve(),
+        updateFavoriteUseCase: resolve()
+      )
     }
 
     register {
-      DetailInteractor(repository: resolve()) as DetailUseCase
+      MovieInteractor(repository: resolve())
+    }
+    
+    register {
+      MovieSimilarInteractor(repository: resolve())
+    }
+    
+    register {
+      AddMovieFavoriteInteractor(repository: resolve())
+    }
+    
+    register {
+      MovieFavoriteInteractor(repository: resolve())
+    }
+    
+    register {
+      UpdateMovieFavoriteInteractor(repository: resolve())
     }
   }
   
   #if !APPCLIP
   static func registerSearchServices() {
     register {
-      SearchPresenter(searchUseCase: resolve())
+      SearchPresenter<String, MovieUIModel, SearchInteractor>(useCase: resolve())
     }
 
     register {
-      SearchInteractor(repository: resolve()) as SearchUseCase
+      SearchInteractor(repository: resolve())
     }
   }
   
   static func registerAboutServices() {
     register {
-      AboutPresenter(aboutUseCase: resolve())
+      AboutPresenter(useCase: resolve())
     }
 
     register {
@@ -74,11 +158,11 @@ extension Resolver {
   
   static func registerFavoriteServices() {
     register {
-      FavoritePresenter(favoriteUseCase: resolve())
+      MoviesFavoritePresenter(useCase: resolve())
     }
-
+    
     register {
-      FavoriteInteractor(repository: resolve()) as FavoriteUseCase
+      MoviesFavoriteInteractor(repository: resolve())
     }
   }
   #endif

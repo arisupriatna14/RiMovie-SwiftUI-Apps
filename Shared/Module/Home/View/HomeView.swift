@@ -7,10 +7,12 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MovieModule
+import Resolver
 
 struct HomeView: View {
-  
-  @ObservedObject var presenter: HomePresenter
+
+  @ObservedObject var presenter: MoviesPresenter<MoviesInteractor>
   
   var body: some View {
     ZStack {
@@ -29,7 +31,7 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
               HStack {
                 ForEach(nowPlaying) { item in
-                  self.presenter.linkBuilderMovieDetail(for: item) {
+                  linkBuilderMovieDetail(for: item) {
                     MovieCardHorizontal(movie: item)
                       .frame(width: 280)
                       .padding(.trailing, 8)
@@ -47,7 +49,7 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
               HStack {
                 ForEach(popular) { item in
-                  self.presenter.linkBuilderMovieDetail(for: item) {
+                  linkBuilderMovieDetail(for: item) {
                     MovieCardVertical(movie: item)
                       .padding(.trailing, 8)
                   }
@@ -61,23 +63,8 @@ struct HomeView: View {
               .fontWeight(.bold)
               .padding()
             
-            #if !APPCLIP
-            BannerView(presenter: presenter, movies: upcoming)
+            BannerView(movies: upcoming)
               .frame(maxWidth: .infinity, maxHeight: .infinity)
-            #else
-            ScrollView(.horizontal, showsIndicators: false) {
-              HStack {
-                ForEach(upcoming) { item in
-                  self.presenter.linkBuilderMovieDetail(for: item) {
-                    MovieCardHorizontal(movie: item)
-                      .frame(width: 280)
-                      .padding(.trailing, 8)
-                  }
-                }
-              }
-              .padding(.horizontal)
-            }
-            #endif
             
             Text("Top Rated Movies")
               .font(.title2)
@@ -87,7 +74,7 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
               HStack {
                 ForEach(topRated) { item in
-                  self.presenter.linkBuilderMovieDetail(for: item) {
+                  linkBuilderMovieDetail(for: item) {
                     MovieCardView(movie: item)
                       .padding(.trailing, 4)
                   }
@@ -105,10 +92,10 @@ struct HomeView: View {
     }
     .navigationTitle("RiMovies+")
     .onAppear {
-      self.presenter.getMovies(with: .nowPlaying)
-      self.presenter.getMovies(with: .popular)
-      self.presenter.getMovies(with: .topRated)
-      self.presenter.getMovies(with: .upcoming)
+      self.presenter.getMovies(request: .nowPlaying)
+      self.presenter.getMovies(request: .popular)
+      self.presenter.getMovies(request: .topRated)
+      self.presenter.getMovies(request: .upcoming)
     }
   }
 }

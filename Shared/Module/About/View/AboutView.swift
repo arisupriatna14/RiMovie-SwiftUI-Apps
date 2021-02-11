@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AboutModule
 
 struct AboutView: View {
   

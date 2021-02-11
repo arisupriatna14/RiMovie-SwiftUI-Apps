@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MovieModule
 
 struct ListMovieTrailersView: View {
   

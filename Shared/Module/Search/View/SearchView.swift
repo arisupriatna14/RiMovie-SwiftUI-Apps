@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import MovieModule
+import SearchModule
 
 struct SearchView: View {
   
-  @ObservedObject var presenter: SearchPresenter
+  @ObservedObject var presenter: SearchPresenter<String, MovieUIModel, SearchInteractor>
   
   var body: some View {
     SearchBar(text: self.$presenter.query) {
       VStack {
         Group {
-          if presenter.isLoadingState {
+          if presenter.isLoading {
             ProgressView()
           } else if presenter.isEmptyResult {
             VStack(alignment: .center) {
@@ -30,11 +32,11 @@ struct SearchView: View {
           }
         }
         
-        if let movies = presenter.movies {
+        if let movies = presenter.list {
           ScrollView(.vertical, showsIndicators: false) {
             VStack {
               ForEach(movies) { item in
-                self.presenter.linkBuilderMovieDetail(for: item) {
+                linkBuilderMovieDetail(for: item) {
                   MovieCardHorizontal(movie: item, isShowOverview: true)
                     .padding(.bottom)
                 }

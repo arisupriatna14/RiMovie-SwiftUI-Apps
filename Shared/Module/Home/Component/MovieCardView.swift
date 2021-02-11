@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MovieModule
 
 struct MovieCardView: View {
   var movie: MovieUIModel

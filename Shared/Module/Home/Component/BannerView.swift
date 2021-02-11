@@ -7,10 +7,11 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MovieModule
+import Resolver
 
 struct BannerView: View {
-  
-  @ObservedObject var presenter: HomePresenter
+
   @State private var opacity: Double = 0.25
   var movies: [MovieUIModel]
   
@@ -18,7 +19,7 @@ struct BannerView: View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack {
         ForEach(movies.suffix(10)) { item in
-          self.presenter.linkBuilderMovieDetail(for: item) {
+          NavigationLink(destination: DetailView(presenter: Resolver.resolve(), movie: item)) {
             WebImage(url: item.posterPathURL)
               .resizable()
               .renderingMode(.original)

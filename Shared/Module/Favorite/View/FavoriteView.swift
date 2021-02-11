@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import MovieModule
 
 struct FavoriteView: View {
   
-  @ObservedObject var presenter: FavoritePresenter
+  @ObservedObject var presenter: MoviesFavoritePresenter
   
   var body: some View {
     ZStack {
-      if let movies = presenter.movies {
+      if let movies = presenter.list {
         if movies.isEmpty {
           CustomEmptyView(image: "no_favorite", title: "Favorite is empty")
         } else {
           ScrollView(.vertical, showsIndicators: false) {
             VStack {
               ForEach(movies) { item in
-                self.presenter.linkBuilderMovieDetail(for: item) {
+                linkBuilderMovieDetail(for: item) {
                   MovieCardHorizontal(movie: item, isShowOverview: true)
                     .padding(.bottom)
                 }
@@ -35,7 +36,18 @@ struct FavoriteView: View {
     }
     .navigationTitle("Favorite")
     .onAppear {
-      self.presenter.getMoviesFavorite()
+      self.presenter.getList(request: nil)
+    }
+  }
+}
+
+extension FavoriteView {
+  func linkBuilderMovieDetail<Content: View>(
+    for movie: MovieUIModel,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    NavigationLink(destination: FavoriteRouter().makeMovieDetailView(for: movie)) {
+      content()
     }
   }
 }

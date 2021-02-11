@@ -7,13 +7,23 @@
 
 import SwiftUI
 import Resolver
+import MovieModule
 
 class SearchRouter {
   
   func makeMovieDetailView(for movie: MovieUIModel) -> some View {
-    let presenter = DetailPresenter(detailUseCase: Resolver.resolve())
-    
-    return DetailView(presenter: presenter, movie: movie)
+    return DetailView(presenter: Resolver.resolve(), movie: movie)
   }
   
+}
+
+extension SearchView {
+  func linkBuilderMovieDetail<Content: View>(
+    for movie: MovieUIModel,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    NavigationLink(destination: SearchRouter().makeMovieDetailView(for: movie)) {
+      content()
+    }
+  }
 }

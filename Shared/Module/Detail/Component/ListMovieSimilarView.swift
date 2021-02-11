@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import MovieModule
+import Resolver
 
 struct ListMovieSimilarView: View {
   
   var similarMovie: [MovieUIModel]
-  @ObservedObject var presenter: DetailPresenter
   
   var body: some View {
     VStack(alignment: .leading) {
@@ -22,7 +23,7 @@ struct ListMovieSimilarView: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
           ForEach(similarMovie) { item in
-            self.presenter.linkBuilderMovieDetail(for: item) {
+            NavigationLink(destination: DetailView(presenter: Resolver.resolve(), movie: item)) {
               MovieCardView(movie: item)
                 .padding(.trailing, 4)
             }

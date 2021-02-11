@@ -7,6 +7,7 @@
 
 import WidgetKit
 import Combine
+import MovieModule
 
 struct MovieProvider: TimelineProvider {
   
@@ -41,14 +42,14 @@ struct MovieProvider: TimelineProvider {
 public class DataFetcher: ObservableObject {
   
   private var cancellables: Set<AnyCancellable> = []
-  private let remote = RemoteDataSource()
+  private let remote = GetMoviesRemoteDataSource(endpoint: Endpoints.Gets.nowPlaying.url)
   
   static let sharedInstance = DataFetcher()
 
   func fetchMovies(completion: @escaping ([MovieUIModel]) -> Void) {
-    remote.fetchMovies(from: .nowPlaying)
-      .map { MovieMapper.mapMoviesResponseToDomains(input: $0) }
-      .map { MovieMapper.mapMoviesDomainsToPresentations(input: $0) }
+    remote.execute(request: .nowPlaying)
+      .map { MovieMapper().transformResponseToDomain(response: $0) }
+      .map { MovieMapper().transformDomainToPresentation(domain: $0) }
       .eraseToAnyPublisher()
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { error in
